@@ -1,5 +1,5 @@
 # fantasydata-api-node
-[FantasyData](https://fantasydata.com) API client library wrapper for Node. For more information on the FantasyData API check the [Fantasy Data Developer Portal](developer.fantasydata.com/?developer-portal).
+[FantasyData](https://fantasydata.com) API client library wrapper for Node. For more information on the FantasyData API check the [Fantasy Data Developer Portal](developer.fantasydata.com/?developer-portal). There are no external dependencies for this package aside from [node](node).
 
 ## Installation
 This library is distributed on `npm`. In order to add it as a dependency, run the following command:
