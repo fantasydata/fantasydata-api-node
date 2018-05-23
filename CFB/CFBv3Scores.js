@@ -10,14 +10,14 @@ class CFBv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Are Games In Progress
     /// </summary>
-    getAreAnyGamesInProgressPromise(){
+    getAreGamesInProgressPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/AreAnyGamesInProgress');
     }
 
     /// <summary>
     /// Get Conference Hierarchy (with Teams)
     /// </summary>
-    getLeagueHierarchyPromise(){
+    getConferenceHierarchyPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/LeagueHierarchy');
     }
 
@@ -61,7 +61,7 @@ class CFBv3ScoresClient extends BaseClient {
     /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getGamesPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/scores/{format}/Games/{season}', parameters);
@@ -90,7 +90,7 @@ class CFBv3ScoresClient extends BaseClient {
     /// Get Team Season Stats & Standings
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2017</code>, <code>2017POST</code>, <code>2018</code>.</param>
-    getTeamSeasonStatsPromise(season){
+    getTeamSeasonStatsStandingsPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/scores/{format}/TeamSeasonStats/{season}', parameters);

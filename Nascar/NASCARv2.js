@@ -11,7 +11,7 @@ class NASCARv2Client extends BaseClient {
     /// Get Driver Details
     /// </summary>
     /// <param name="driverid">Unique FantasyData Driver ID. Example:<code>80000268</code>.</param>
-    getDriverPromise(driverid){
+    getDriverDetailsPromise(driverid){
         var parameters = {};
         parameters['driverid']=driverid;
         return this.GetPromise('/nascar/v2/{format}/driver/{driverid}', parameters);
@@ -21,7 +21,7 @@ class NASCARv2Client extends BaseClient {
     /// Get Driver Race Projections (Entry List)
     /// </summary>
     /// <param name="raceid">Unique FantasyData Race ID. Example:<code>1</code>, <code>2</code>, etc.</param>
-    getDriverRaceProjectionsPromise(raceid){
+    getDriverRaceProjectionsEntryListPromise(raceid){
         var parameters = {};
         parameters['raceid']=raceid;
         return this.GetPromise('/nascar/v2/{format}/DriverRaceProjections/{raceid}', parameters);
@@ -38,7 +38,7 @@ class NASCARv2Client extends BaseClient {
     /// Get Race Results
     /// </summary>
     /// <param name="raceid">Unique FantasyData Race ID. Example:<code>1</code>, <code>2</code>, etc.</param>
-    getRaceresultPromise(raceid){
+    getRaceResultsPromise(raceid){
         var parameters = {};
         parameters['raceid']=raceid;
         return this.GetPromise('/nascar/v2/{format}/raceresult/{raceid}', parameters);
@@ -48,7 +48,7 @@ class NASCARv2Client extends BaseClient {
     /// Get Races / Schedule
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>.</param>
-    getRacesPromise(season){
+    getRacesSchedulePromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/nascar/v2/{format}/races/{season}', parameters);

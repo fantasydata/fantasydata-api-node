@@ -28,7 +28,7 @@ class NFLv3PlayByPlayClient extends BaseClient {
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code> or <code>2</code>.</param>
     /// <param name="numberofplays">The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc.</param>
-    getSimulatedPlayByPlayPromise(season, week, minutes, numberofplays){
+    getPlayByPlaySimulationPromise(season, week, minutes, numberofplays){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;

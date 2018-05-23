@@ -11,7 +11,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     /// Get DFS Slates by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>.</param>
-    getDfsSlatesByDatePromise(date){
+    getDFSSlatesByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nba/projections/{format}/DfsSlatesByDate/{date}', parameters);
@@ -21,7 +21,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
-    getPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nba/projections/{format}/PlayerGameProjectionStatsByDate/{date}', parameters);
@@ -32,7 +32,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
-    getPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;

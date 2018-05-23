@@ -10,7 +10,7 @@ class NBAv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Are Games In Progress
     /// </summary>
-    getAreAnyGamesInProgressPromise(){
+    getAreGamesInProgressPromise(){
         return this.GetPromise('/v3/nba/scores/{format}/AreAnyGamesInProgress');
     }
 
@@ -52,7 +52,7 @@ class NBAv3ScoresClient extends BaseClient {
     /// Get News by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
-    getNewsByPlayerIDPromise(playerid){
+    getNewsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/nba/scores/{format}/NewsByPlayerID/{playerid}', parameters);
@@ -62,7 +62,7 @@ class NBAv3ScoresClient extends BaseClient {
     /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getGamesPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nba/scores/{format}/Games/{season}', parameters);
@@ -108,14 +108,14 @@ class NBAv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Teams (Active)
     /// </summary>
-    getTeamsPromise(){
+    getTeamsActivePromise(){
         return this.GetPromise('/v3/nba/scores/{format}/teams');
     }
 
     /// <summary>
     /// Get Teams (All)
     /// </summary>
-    getAllTeamsPromise(){
+    getTeamsAllPromise(){
         return this.GetPromise('/v3/nba/scores/{format}/AllTeams');
     }
 

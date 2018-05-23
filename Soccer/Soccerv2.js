@@ -10,7 +10,7 @@ class Soccerv2Client extends BaseClient {
     /// <summary>
     /// Get Areas (Countries)
     /// </summary>
-    getAreasPromise(){
+    getAreasCountriesPromise(){
         return this.GetPromise('/soccer/v2/{format}/Areas');
     }
 
@@ -28,7 +28,7 @@ class Soccerv2Client extends BaseClient {
     /// Get Box Scores by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
-    getBoxScoresPromise(date){
+    getBoxScoresByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/soccer/v2/{format}/BoxScores/{date}', parameters);
@@ -39,7 +39,7 @@ class Soccerv2Client extends BaseClient {
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
-    getBoxScoresByCompetitionPromise(competition, date){
+    getBoxScoresByDateByCompetitionPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -51,7 +51,7 @@ class Soccerv2Client extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code>, <code>2</code> ... <code>all</code>.</param>
-    getBoxScoresDeltaPromise(date, minutes){
+    getBoxScoresByDateDeltaPromise(date, minutes){
         var parameters = {};
         parameters['date']=date;
         parameters['minutes']=minutes;
@@ -64,7 +64,7 @@ class Soccerv2Client extends BaseClient {
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code>, <code>2</code> ... <code>all</code>.</param>
-    getBoxScoresDeltaByCompetitionPromise(competition, date, minutes){
+    getBoxScoresDeltaByDateByCompetitionPromise(competition, date, minutes){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -76,7 +76,7 @@ class Soccerv2Client extends BaseClient {
     /// Get Competition Fixtures (League Details)
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getCompetitionDetailsPromise(competition){
+    getCompetitionFixturesLeagueDetailsPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/soccer/v2/{format}/CompetitionDetails/{competition}', parameters);
@@ -85,14 +85,14 @@ class Soccerv2Client extends BaseClient {
     /// <summary>
     /// Get Competition Hierarchy (League Hierarchy)
     /// </summary>
-    getCompetitionHierarchyPromise(){
+    getCompetitionHierarchyLeagueHierarchyPromise(){
         return this.GetPromise('/soccer/v2/{format}/CompetitionHierarchy');
     }
 
     /// <summary>
     /// Get Competitions (Leagues)
     /// </summary>
-    getCompetitionsPromise(){
+    getCompetitionsLeaguesPromise(){
         return this.GetPromise('/soccer/v2/{format}/Competitions');
     }
 
@@ -109,14 +109,14 @@ class Soccerv2Client extends BaseClient {
     /// <summary>
     /// Get Memberships (Active)
     /// </summary>
-    getActiveMembershipsPromise(){
+    getMembershipsActivePromise(){
         return this.GetPromise('/soccer/v2/{format}/ActiveMemberships');
     }
 
     /// <summary>
     /// Get Memberships (Historical)
     /// </summary>
-    getHistoricalMembershipsPromise(){
+    getMembershipsHistoricalPromise(){
         return this.GetPromise('/soccer/v2/{format}/HistoricalMemberships');
     }
 
@@ -124,7 +124,7 @@ class Soccerv2Client extends BaseClient {
     /// Get Memberships by Team (Active)
     /// </summary>
     /// <param name="teamid">Unique FantasyData Team ID. Example:<code>516</code>.</param>
-    getMembershipsByTeamPromise(teamid){
+    getMembershipsByTeamActivePromise(teamid){
         var parameters = {};
         parameters['teamid']=teamid;
         return this.GetPromise('/soccer/v2/{format}/MembershipsByTeam/{teamid}', parameters);
@@ -134,7 +134,7 @@ class Soccerv2Client extends BaseClient {
     /// Get Memberships by Team (Historical)
     /// </summary>
     /// <param name="teamid">Unique FantasyData Team ID. Example:<code>516</code>.</param>
-    getHistoricalMembershipsByTeamPromise(teamid){
+    getMembershipsByTeamHistoricalPromise(teamid){
         var parameters = {};
         parameters['teamid']=teamid;
         return this.GetPromise('/soccer/v2/{format}/HistoricalMembershipsByTeam/{teamid}', parameters);
@@ -228,7 +228,7 @@ class Soccerv2Client extends BaseClient {
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
-    getPlayerGameProjectionStatsByCompetitionPromise(competition, date){
+    getProjectedPlayerGameStatsByCompetitionPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -239,7 +239,7 @@ class Soccerv2Client extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
-    getPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/soccer/v2/{format}/PlayerGameProjectionStatsByDate/{date}', parameters);
@@ -250,7 +250,7 @@ class Soccerv2Client extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2016-02-27</code>, <code>2016-09-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
-    getPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;

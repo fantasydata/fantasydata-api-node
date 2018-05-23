@@ -17,7 +17,7 @@ class Golfv2Client extends BaseClient {
     /// <summary>
     /// Get Injuries (Historical)
     /// </summary>
-    getInjuriesByHistoricalPromise(){
+    getInjuriesHistoricalPromise(){
         return this.GetPromise('/golf/v2/{format}/InjuriesByHistorical');
     }
 
@@ -52,7 +52,7 @@ class Golfv2Client extends BaseClient {
     /// Get News by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>40000019</code>.</param>
-    getNewsByPlayerIDPromise(playerid){
+    getNewsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/golf/v2/{format}/NewsByPlayerID/{playerid}', parameters);
@@ -82,7 +82,7 @@ class Golfv2Client extends BaseClient {
     /// Get Player Tournament Projected Stats (w/ DraftKings Salaries)
     /// </summary>
     /// <param name="tournamentid">The TournamentID of a tournament. TournamentIDs can be found in the Tournaments API. Valid entries are <code>78</code>, <code>79</code>, <code>80</code>, etc.</param>
-    getPlayerTournamentProjectionStatsPromise(tournamentid){
+    getPlayerTournamentProjectedStatsPromise(tournamentid){
         var parameters = {};
         parameters['tournamentid']=tournamentid;
         return this.GetPromise('/golf/v2/{format}/PlayerTournamentProjectionStats/{tournamentid}', parameters);
@@ -110,7 +110,7 @@ class Golfv2Client extends BaseClient {
     /// <summary>
     /// Get Schedule
     /// </summary>
-    getTournamentsPromise(){
+    getSchedulePromise(){
         return this.GetPromise('/golf/v2/{format}/Tournaments');
     }
 
@@ -118,7 +118,7 @@ class Golfv2Client extends BaseClient {
     /// Get DFS Slates
     /// </summary>
     /// <param name="tournamentid">The TournamentID of a tournament. TournamentIDs can be found in the Tournaments API. Valid entries are <code>58</code>, <code>61</code>, etc.</param>
-    getDfsSlatesByTournamentPromise(tournamentid){
+    getDFSSlatesPromise(tournamentid){
         var parameters = {};
         parameters['tournamentid']=tournamentid;
         return this.GetPromise('/golf/v2/{format}/DfsSlatesByTournament/{tournamentid}', parameters);
@@ -128,7 +128,7 @@ class Golfv2Client extends BaseClient {
     /// Get Schedule by Season
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2016</code>, <code>2017</code>.</param>
-    getTournamentsPromise(season){
+    getScheduleBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/golf/v2/{format}/Tournaments/{season}', parameters);

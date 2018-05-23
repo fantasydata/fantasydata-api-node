@@ -12,7 +12,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getPlayerGameProjectionStatsByCompetitionPromise(competition, date){
+    getProjectedPlayerGameStatsByCompetitionPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -23,7 +23,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/soccer/projections/{format}/PlayerGameProjectionStatsByDate/{date}', parameters);
@@ -34,7 +34,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
-    getPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;

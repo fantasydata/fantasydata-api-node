@@ -11,7 +11,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     /// Get DFS Slates by Date
     /// </summary>
     /// <param name="date">The date of the slates. Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
-    getDfsSlatesByDatePromise(date){
+    getDFSSlatesByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/mlb/projections/{format}/DfsSlatesByDate/{date}', parameters);
@@ -21,7 +21,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ Injuries, Lineups, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
-    getPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/mlb/projections/{format}/PlayerGameProjectionStatsByDate/{date}', parameters);
@@ -32,7 +32,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
-    getPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;
@@ -43,7 +43,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     /// Get Projected Player Season Stats (with ADP)
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2017</code>, <code>2018</code>.</param>
-    getPlayerSeasonProjectionStatsPromise(season){
+    getProjectedPlayerSeasonStatsPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/mlb/projections/{format}/PlayerSeasonProjectionStats/{season}', parameters);

@@ -1,5 +1,5 @@
 # fantasydata-api-node
-[FantasyData](https://fantasydata.com) API client library wrapper for Node. For more information on the FantasyData API check the [Fantasy Data Developer Portal](developer.fantasydata.com/?developer-portal). There are no external dependencies for this package aside from [node](https://nodejs.org/).
+[FantasyData](https://fantasydata.com) API client library wrapper for Node. For more information on the FantasyData API check the [Fantasy Data Developer Portal](https://developer.fantasydata.com/?developer-portal). There are no external dependencies for this package aside from [node](https://nodejs.org/).
 
 ## Installation
 This library is distributed on `npm`. In order to add it as a dependency, run the following command:
@@ -9,7 +9,7 @@ $ npm install --save fantasydata-node-client
 ```
 
 ## Authentication
-You can find your api keys in the [Fantasy Data Developer Portal](https://developer.fantasydata.com/developer). See [Usage](#Usage) for implementation details.
+You can find your api keys in the [Fantasy Data Developer Portal](https://developer.fantasydata.com/developer). See [Usage](#usage) for implementation details.
 
 ## Usage
 In this simple example we authenticate two clients, `MLBv3Stats` and `MLBv3Projections`, with their respective keys. We then pull standings for `2018` and do whatever we need to with the JSON returned.

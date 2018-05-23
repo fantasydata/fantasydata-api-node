@@ -10,7 +10,7 @@ class NBAv2Client extends BaseClient {
     /// <summary>
     /// Get Are Games In Progress
     /// </summary>
-    getAreAnyGamesInProgressPromise(){
+    getAreGamesInProgressPromise(){
         return this.GetPromise('/nba/v2/{format}/AreAnyGamesInProgress');
     }
 
@@ -28,7 +28,7 @@ class NBAv2Client extends BaseClient {
     /// Get Box Scores by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
-    getBoxScoresPromise(date){
+    getBoxScoresByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/nba/v2/{format}/BoxScores/{date}', parameters);
@@ -39,7 +39,7 @@ class NBAv2Client extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code> or <code>2</code>.</param>
-    getBoxScoresDeltaPromise(date, minutes){
+    getBoxScoresByDateDeltaPromise(date, minutes){
         var parameters = {};
         parameters['date']=date;
         parameters['minutes']=minutes;
@@ -84,7 +84,7 @@ class NBAv2Client extends BaseClient {
     /// Get News by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
-    getNewsByPlayerIDPromise(playerid){
+    getNewsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/nba/v2/{format}/NewsByPlayerID/{playerid}', parameters);
@@ -93,14 +93,14 @@ class NBAv2Client extends BaseClient {
     /// <summary>
     /// Get Player Details by Active
     /// </summary>
-    getPlayersPromise(){
+    getPlayerDetailsByActivePromise(){
         return this.GetPromise('/nba/v2/{format}/Players');
     }
 
     /// <summary>
     /// Get Player Details by Free Agent
     /// </summary>
-    getFreeAgentsPromise(){
+    getPlayerDetailsByFreeAgentPromise(){
         return this.GetPromise('/nba/v2/{format}/FreeAgents');
     }
 
@@ -108,7 +108,7 @@ class NBAv2Client extends BaseClient {
     /// Get Player Details by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
-    getPlayerPromise(playerid){
+    getPlayerDetailsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/nba/v2/{format}/Player/{playerid}', parameters);
@@ -174,7 +174,7 @@ class NBAv2Client extends BaseClient {
     /// Get Players by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersPromise(team){
+    getPlayersByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/nba/v2/{format}/Players/{team}', parameters);
@@ -184,7 +184,7 @@ class NBAv2Client extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
-    getPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/nba/v2/{format}/PlayerGameProjectionStatsByDate/{date}', parameters);
@@ -195,7 +195,7 @@ class NBAv2Client extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
-    getPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;
@@ -206,7 +206,7 @@ class NBAv2Client extends BaseClient {
     /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>.</param>
-    getGamesPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/nba/v2/{format}/Games/{season}', parameters);
@@ -262,14 +262,14 @@ class NBAv2Client extends BaseClient {
     /// <summary>
     /// Get Teams (Active)
     /// </summary>
-    getTeamsPromise(){
+    getTeamsActivePromise(){
         return this.GetPromise('/nba/v2/{format}/teams');
     }
 
     /// <summary>
     /// Get Teams (All)
     /// </summary>
-    getAllTeamsPromise(){
+    getTeamsAllPromise(){
         return this.GetPromise('/nba/v2/{format}/AllTeams');
     }
 

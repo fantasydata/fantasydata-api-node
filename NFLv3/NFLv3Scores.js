@@ -10,7 +10,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Are Games In Progress
     /// </summary>
-    getAreAnyGamesInProgressPromise(){
+    getAreGamesInProgressPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/AreAnyGamesInProgress');
     }
 
@@ -18,7 +18,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Bye Weeks
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
-    getByesPromise(season){
+    getByeWeeksPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Byes/{season}', parameters);
@@ -28,7 +28,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Game Stats by Season (Deprecated, use Team Game Stats instead)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
-    getGameStatsPromise(season){
+    getGameStatsBySeasonDeprecatedUseTeamGameStatsInsteadPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/GameStats/{season}', parameters);
@@ -39,7 +39,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getGameStatsByWeekPromise(season, week){
+    getGameStatsByWeekDeprecatedUseTeamGameStatsInsteadPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -67,7 +67,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get News by Player
     /// </summary>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>14257</code>.</param>
-    getNewsByPlayerIDPromise(playerid){
+    getNewsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/nfl/scores/{format}/NewsByPlayerID/{playerid}', parameters);
@@ -87,7 +87,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Schedule
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesPromise(season){
+    getSchedulePromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Schedules/{season}', parameters);
@@ -97,7 +97,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Scores by Season 
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getScoresPromise(season){
+    getScoresBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Scores/{season}', parameters);
@@ -118,21 +118,21 @@ class NFLv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Season Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/CurrentSeason');
     }
 
     /// <summary>
     /// Get Season Last Completed
     /// </summary>
-    getLastCompletedSeasonPromise(){
+    getSeasonLastCompletedPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/LastCompletedSeason');
     }
 
     /// <summary>
     /// Get Season Upcoming
     /// </summary>
-    getUpcomingSeasonPromise(){
+    getSeasonUpcomingPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/UpcomingSeason');
     }
 
@@ -178,14 +178,14 @@ class NFLv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Teams (Active)
     /// </summary>
-    getTeamsPromise(){
+    getTeamsActivePromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/Teams');
     }
 
     /// <summary>
     /// Get Teams (All)
     /// </summary>
-    getAllTeamsPromise(){
+    getTeamsAllPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/AllTeams');
     }
 
@@ -193,7 +193,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Teams by Season
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
-    getTeamsPromise(season){
+    getTeamsBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Teams/{season}', parameters);
@@ -212,21 +212,21 @@ class NFLv3ScoresClient extends BaseClient {
     /// <summary>
     /// Get Week Current
     /// </summary>
-    getCurrentWeekPromise(){
+    getWeekCurrentPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/CurrentWeek');
     }
 
     /// <summary>
     /// Get Week Last Completed
     /// </summary>
-    getLastCompletedWeekPromise(){
+    getWeekLastCompletedPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/LastCompletedWeek');
     }
 
     /// <summary>
     /// Get Week Upcoming
     /// </summary>
-    getUpcomingWeekPromise(){
+    getWeekUpcomingPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/UpcomingWeek');
     }
 
@@ -234,7 +234,7 @@ class NFLv3ScoresClient extends BaseClient {
     /// Get Scores by Week Simulation
     /// </summary>
     /// <param name="numberofplays">The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc.</param>
-    getSimulatedScoresPromise(numberofplays){
+    getScoresByWeekSimulationPromise(numberofplays){
         var parameters = {};
         parameters['numberofplays']=numberofplays;
         return this.GetPromise('/v3/nfl/scores/{format}/SimulatedScores/{numberofplays}', parameters);

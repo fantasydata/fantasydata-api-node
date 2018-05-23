@@ -28,7 +28,7 @@ class MLBv3RotoBallerArticlesClient extends BaseClient {
     /// Get RotoBaller Articles By Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
-    getRotoBallerArticlesByPlayerIDPromise(playerid){
+    getRotoBallerArticlesByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/mlb/articles-rotoballer/{format}/RotoBallerArticlesByPlayerID/{playerid}', parameters);

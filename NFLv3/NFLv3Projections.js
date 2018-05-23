@@ -11,7 +11,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// Get DFS Slates by Date
     /// </summary>
     /// <param name="date">The date of the slates. Examples: <code>2017-SEP-25</code>, <code>2017-10-31</code>.</param>
-    getDfsSlatesByDatePromise(date){
+    getDFSSlatesByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nfl/projections/{format}/DfsSlatesByDate/{date}', parameters);
@@ -22,7 +22,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code></param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getDfsSlatesByWeekPromise(season, week){
+    getDFSSlatesByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -34,7 +34,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getFantasyDefenseProjectionsByGamePromise(season, week){
+    getProjectedFantasyDefenseGameStatsPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -45,7 +45,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// Get Projected Fantasy Defense Season Stats (w/ Bye Week, ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
-    getFantasyDefenseProjectionsBySeasonPromise(season){
+    getProjectedFantasyDefenseSeasonStatsPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/projections/{format}/FantasyDefenseProjectionsBySeason/{season}', parameters);
@@ -57,7 +57,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>14257</code>.</param>
-    getPlayerGameProjectionStatsByPlayerIDPromise(season, week, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(season, week, playerid){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -71,7 +71,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
     /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
-    getPlayerGameProjectionStatsByTeamPromise(season, week, team){
+    getProjectedPlayerGameStatsByTeamPromise(season, week, team){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -84,7 +84,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getPlayerGameProjectionStatsByWeekPromise(season, week){
+    getProjectedPlayerGameStatsByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -95,7 +95,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// Get Projected Player Season Stats (w/ Bye Week, ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
-    getPlayerSeasonProjectionStatsPromise(season){
+    getProjectedPlayerSeasonStatsPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/projections/{format}/PlayerSeasonProjectionStats/{season}', parameters);
@@ -106,7 +106,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>14257</code>.</param>
-    getPlayerSeasonProjectionStatsByPlayerIDPromise(season, playerid){
+    getProjectedPlayerSeasonStatsByPlayerPromise(season, playerid){
         var parameters = {};
         parameters['season']=season;
         parameters['playerid']=playerid;
@@ -118,7 +118,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
-    getPlayerSeasonProjectionStatsByTeamPromise(season, team){
+    getProjectedPlayerSeasonStatsByTeamPromise(season, team){
         var parameters = {};
         parameters['season']=season;
         parameters['team']=team;

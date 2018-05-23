@@ -11,7 +11,7 @@ class MLBv3ProjectionsDfsrClient extends BaseClient {
     /// Get Projected Player Game Stats by Date (w/ Injuries, Lineups, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
-    getDfsrPlayerGameProjectionStatsByDatePromise(date){
+    getProjectedPlayerGameStatsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/mlb/projections-dfsr/{format}/DfsrPlayerGameProjectionStatsByDate/{date}', parameters);
@@ -22,7 +22,7 @@ class MLBv3ProjectionsDfsrClient extends BaseClient {
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
-    getDfsrPlayerGameProjectionStatsByPlayerPromise(date, playerid){
+    getProjectedPlayerGameStatsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;

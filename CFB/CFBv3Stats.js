@@ -10,7 +10,7 @@ class CFBv3StatsClient extends BaseClient {
     /// <summary>
     /// Get Are Games In Progress
     /// </summary>
-    getAreAnyGamesInProgressPromise(){
+    getAreGamesInProgressPromise(){
         return this.GetPromise('/v3/cfb/stats/{format}/AreAnyGamesInProgress');
     }
 
@@ -63,7 +63,7 @@ class CFBv3StatsClient extends BaseClient {
     /// <summary>
     /// Get Conference Hierarchy (with Teams)
     /// </summary>
-    getLeagueHierarchyPromise(){
+    getConferenceHierarchyPromise(){
         return this.GetPromise('/v3/cfb/stats/{format}/LeagueHierarchy');
     }
 
@@ -106,7 +106,7 @@ class CFBv3StatsClient extends BaseClient {
     /// <summary>
     /// Get Player Details by Active
     /// </summary>
-    getPlayersPromise(){
+    getPlayerDetailsByActivePromise(){
         return this.GetPromise('/v3/cfb/stats/{format}/Players');
     }
 
@@ -114,7 +114,7 @@ class CFBv3StatsClient extends BaseClient {
     /// Get Player Details by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>50002016</code>.</param>
-    getPlayerPromise(playerid){
+    getPlayerDetailsByPlayerPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/cfb/stats/{format}/Player/{playerid}', parameters);
@@ -124,7 +124,7 @@ class CFBv3StatsClient extends BaseClient {
     /// Get Player Details by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersPromise(team){
+    getPlayerDetailsByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/cfb/stats/{format}/Players/{team}', parameters);
@@ -194,7 +194,7 @@ class CFBv3StatsClient extends BaseClient {
     /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getGamesPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/stats/{format}/Games/{season}', parameters);
@@ -223,7 +223,7 @@ class CFBv3StatsClient extends BaseClient {
     /// Get Team Season Stats & Standings
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2017</code>, <code>2017POST</code>, <code>2018</code>.</param>
-    getTeamSeasonStatsPromise(season){
+    getTeamSeasonStatsStandingsPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/stats/{format}/TeamSeasonStats/{season}', parameters);
