@@ -39,6 +39,40 @@ class NBAv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nba/projections/{format}/PlayerGameProjectionStatsByPlayer/{date}/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get Projected Player Season Stats
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    getProjectedPlayerSeasonStatsPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nba/projections/{format}/PlayerSeasonProjectionStats/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Projected Player Season Stats by Player
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
+    getProjectedPlayerSeasonStatsByPlayerPromise(season, playerid){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['playerid']=playerid;
+        return this.GetPromise('/v3/nba/projections/{format}/PlayerSeasonProjectionStatsByPlayer/{season}/{playerid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Projected Player Season Stats by Team
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>MIA</code>, <code>PHI</code>.</param>
+    getProjectedPlayerSeasonStatsByTeamPromise(season, team){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['team']=team;
+        return this.GetPromise('/v3/nba/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}', parameters);
+    }
+
 }
 
 module.exports = NBAv3ProjectionsClient;

@@ -172,7 +172,7 @@ class NBAv3StatsClient extends BaseClient {
     /// Get Player Season Stats by Team
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>.</param>
-    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>MIA</code>, <code>PHI</code>.</param>
     getPlayerSeasonStatsByTeamPromise(season, team){
         var parameters = {};
         parameters['season']=season;

@@ -287,6 +287,16 @@ class Soccerv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/stats/{format}/Venues');
     }
 
+    /// <summary>
+    /// Get Upcoming Schedule By Player
+    /// </summary>
+    /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
+    getUpcomingScheduleByPlayerPromise(playerid){
+        var parameters = {};
+        parameters['playerid']=playerid;
+        return this.GetPromise('/v3/soccer/stats/{format}/UpcomingScheduleByPlayer/{playerid}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3StatsClient;
