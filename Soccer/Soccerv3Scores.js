@@ -183,6 +183,36 @@ class Soccerv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/soccer/scores/{format}/UpcomingScheduleByPlayer/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get Memberships (Recently Changed)
+    /// </summary>
+    /// <param name="days">The number of days since memberships were updated. For example, if you pass <code>3</code>, you'll receive all memberships that have been updated in the past 3 days. Valid entries are: <code>1</code>, <code>2</code> ... <code>30</code></param>
+    getMembershipsRecentlyChangedPromise(days){
+        var parameters = {};
+        parameters['days']=days;
+        return this.GetPromise('/v3/soccer/scores/{format}/RecentlyChangedMemberships/{days}', parameters);
+    }
+
+    /// <summary>
+    /// Get Memberships by Competition (Active)
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    getMembershipsByCompetitionActivePromise(competition){
+        var parameters = {};
+        parameters['competition']=competition;
+        return this.GetPromise('/v3/soccer/scores/{format}/MembershipsByCompetition/{competition}', parameters);
+    }
+
+    /// <summary>
+    /// Get Memberships by Competition (Historical)
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    getMembershipsByCompetitionHistoricalPromise(competition){
+        var parameters = {};
+        parameters['competition']=competition;
+        return this.GetPromise('/v3/soccer/scores/{format}/HistoricalMembershipsByCompetition/{competition}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3ScoresClient;
