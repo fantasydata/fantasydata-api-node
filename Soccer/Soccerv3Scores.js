@@ -213,6 +213,13 @@ class Soccerv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/soccer/scores/{format}/HistoricalMembershipsByCompetition/{competition}', parameters);
     }
 
+    /// <summary>
+    /// Get Canceled Memberships
+    /// </summary>
+    getCanceledMembershipsPromise(){
+        return this.GetPromise('/v3/soccer/scores/{format}/CanceledMemberships');
+    }
+
 }
 
 module.exports = Soccerv3ScoresClient;

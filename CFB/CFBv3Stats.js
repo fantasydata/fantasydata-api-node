@@ -236,6 +236,20 @@ class CFBv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/cfb/stats/{format}/Teams');
     }
 
+    /// <summary>
+    /// Get Current SeasonType
+    /// </summary>
+    getCurrentSeasonTypePromise(){
+        return this.GetPromise('/v3/cfb/stats/{format}/CurrentSeasonType');
+    }
+
+    /// <summary>
+    /// Get Current Season Details
+    /// </summary>
+    getCurrentSeasonDetailsPromise(){
+        return this.GetPromise('/v3/cfb/stats/{format}/CurrentSeasonDetails');
+    }
+
 }
 
 module.exports = CFBv3StatsClient;

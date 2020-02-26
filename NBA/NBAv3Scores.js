@@ -119,6 +119,30 @@ class NBAv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/nba/scores/{format}/AllTeams');
     }
 
+    /// <summary>
+    /// Get Player Details by Active
+    /// </summary>
+    getPlayerDetailsByActivePromise(){
+        return this.GetPromise('/v3/nba/scores/{format}/Players');
+    }
+
+    /// <summary>
+    /// Get Player Details by Free Agent
+    /// </summary>
+    getPlayerDetailsByFreeAgentPromise(){
+        return this.GetPromise('/v3/nba/scores/{format}/FreeAgents');
+    }
+
+    /// <summary>
+    /// Get Player Details by Player
+    /// </summary>
+    /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
+    getPlayerDetailsByPlayerPromise(playerid){
+        var parameters = {};
+        parameters['playerid']=playerid;
+        return this.GetPromise('/v3/nba/scores/{format}/Player/{playerid}', parameters);
+    }
+
 }
 
 module.exports = NBAv3ScoresClient;

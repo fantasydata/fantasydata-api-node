@@ -222,6 +222,13 @@ class CBBv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/stats/{format}/Tournament/{season}', parameters);
     }
 
+    /// <summary>
+    /// Get Stadiums
+    /// </summary>
+    getStadiumsPromise(){
+        return this.GetPromise('/v3/cbb/stats/{format}/Stadiums');
+    }
+
 }
 
 module.exports = CBBv3StatsClient;
