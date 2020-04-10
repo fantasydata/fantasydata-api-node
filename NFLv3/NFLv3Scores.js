@@ -240,6 +240,50 @@ class NFLv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/nfl/scores/{format}/SimulatedScores/{numberofplays}', parameters);
     }
 
+    /// <summary>
+    /// Get Player Details by Available
+    /// </summary>
+    getPlayerDetailsByAvailablePromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/Players');
+    }
+
+    /// <summary>
+    /// Get Player Details by Free Agents
+    /// </summary>
+    getPlayerDetailsByFreeAgentsPromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/FreeAgents');
+    }
+
+    /// <summary>
+    /// Get Player Details by Player
+    /// </summary>
+    /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>732</code>.</param>
+    getPlayerDetailsByPlayerPromise(playerid){
+        var parameters = {};
+        parameters['playerid']=playerid;
+        return this.GetPromise('/v3/nfl/scores/{format}/Player/{playerid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Player Details by Team
+    /// </summary>
+    /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
+    getPlayerDetailsByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/nfl/scores/{format}/Players/{team}', parameters);
+    }
+
+    /// <summary>
+    /// Get Player Details by Rookie Draft Year
+    /// </summary>
+    /// <param name="season">Year of the season. Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    getPlayerDetailsByRookieDraftYearPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nfl/scores/{format}/Rookies/{season}', parameters);
+    }
+
 }
 
 module.exports = NFLv3ScoresClient;

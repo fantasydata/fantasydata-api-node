@@ -751,6 +751,16 @@ class NFLv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/nfl/stats/{format}/PlayerSeasonRedZoneInsideTenStats/{season}', parameters);
     }
 
+    /// <summary>
+    /// Get Player Details by Rookie Draft Year
+    /// </summary>
+    /// <param name="season">Year of the season. Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    getPlayerDetailsByRookieDraftYearPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nfl/stats/{format}/Rookies/{season}', parameters);
+    }
+
 }
 
 module.exports = NFLv3StatsClient;
