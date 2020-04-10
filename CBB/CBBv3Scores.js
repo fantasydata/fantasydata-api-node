@@ -112,6 +112,13 @@ class CBBv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/cbb/scores/{format}/Tournament/{season}', parameters);
     }
 
+    /// <summary>
+    /// Get Stadiums
+    /// </summary>
+    getStadiumsPromise(){
+        return this.GetPromise('/v3/cbb/scores/{format}/Stadiums');
+    }
+
 }
 
 module.exports = CBBv3ScoresClient;

@@ -28,20 +28,20 @@ class Soccerv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Live Game Odds by Date
+    /// Get In-Game Odds by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
-    getLiveGameOddsByDatePromise(date){
+    getInGameOddsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/soccer/odds/{format}/LiveGameOddsByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Live Game Odds Line Movement
+    /// Get In-Game Odds Line Movement
     /// </summary>
     /// <param name="gameid">The GameID of a Soccer game. GameIDs can be found in the Games API. Valid entries are <code>14060</code>, <code>14061</code>, etc.</param>
-    getLiveGameOddsLineMovementPromise(gameid){
+    getInGameOddsLineMovementPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/soccer/odds/{format}/LiveGameOddsLineMovement/{gameid}', parameters);
