@@ -25,7 +25,8 @@ class BaseClient {
             const options ={
                 hostname:this.Host,
                 path:endpoint,
-                headers: { 'Ocp-Apim-Subscription-Key': this.ApiKey }
+                headers: { 'Ocp-Apim-Subscription-Key': this.ApiKey },
+                rejectUnauthorized: false
             };
             const request = https.get(options, (response)=>{
                 // accept only 200s

@@ -29,6 +29,16 @@ class Lolv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/lol/projections/{format}/PlayerGameProjectionStatsByPlayer/{date}/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get DFS Slates by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>.</param>
+    getDFSSlatesByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/lol/projections/{format}/DfsSlatesByDate/{date}', parameters);
+    }    
+
 }
 
 module.exports = Lolv3ProjectionsClient;
