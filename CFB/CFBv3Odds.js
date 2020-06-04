@@ -113,6 +113,28 @@ class CFBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cfb/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Trends by Matchup
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>MIA</code>, <code>ND</code>, <code>PITT</code>, etc.</param>
+    /// <param name="opponent">The abbreviation of the requested opponent. Examples: <code>MIA</code>, <code>ND</code>, <code>PITT</code>, etc.</param>
+    getBettingTrendsByMatchupPromise(team, opponent){
+        var parameters = {};
+        parameters['team']=team;
+        parameters['opponent']=opponent;
+        return this.GetPromise('/v3/cfb/odds/{format}/MatchupTrends/{team}/{opponent}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Trends by Team
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>MIA</code>, <code>ND</code>, <code>PITT</code>, etc.</param>
+    getBettingTrendsByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/cfb/odds/{format}/TeamTrends/{team}', parameters);
+    }
+
 }
 
 module.exports = CFBv3OddsClient;

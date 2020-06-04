@@ -173,6 +173,38 @@ class NBAv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nba/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Markets by GameID
+    /// </summary>
+    /// <param name="gameID">The GameID of the desired game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>14814</code></param>
+    getBettingMarketsByGameIDPromise(gameID){
+        var parameters = {};
+        parameters['gameID']=gameID;
+        return this.GetPromise('/v3/nba/odds/{format}/BettingMarketsByGameID/{gameID}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Trends by Matchup
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.</param>
+    /// <param name="opponent">The abbreviation of the requested opponent. Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.</param>
+    getBettingTrendsByMatchupPromise(team, opponent){
+        var parameters = {};
+        parameters['team']=team;
+        parameters['opponent']=opponent;
+        return this.GetPromise('/v3/nba/odds/{format}/MatchupTrends/{team}/{opponent}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Trends by Team
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.</param>
+    getBettingTrendsByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/nba/odds/{format}/TeamTrends/{team}', parameters);
+    }
+
 }
 
 module.exports = NBAv3OddsClient;

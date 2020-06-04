@@ -113,6 +113,28 @@ class NFLv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nfl/odds/{format}/AlternateMarketGameOddsLineMovement/{scoreid}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Trends by Matchup
+    /// </summary>
+    /// <param name="team">Abbreviation of a team. Example: <code>PHI</code>.</param>
+    /// <param name="opponent">Abbreviation of an opponent. Example: <code>NE</code>.</param>
+    getBettingTrendsByMatchupPromise(team, opponent){
+        var parameters = {};
+        parameters['team']=team;
+        parameters['opponent']=opponent;
+        return this.GetPromise('/v3/nfl/odds/{format}/MatchupTrends/{team}/{opponent}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Trends by Team
+    /// </summary>
+    /// <param name="team">Abbreviation of a team. Example: <code>PHI</code>.</param>
+    getBettingTrendsByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/nfl/odds/{format}/TeamTrends/{team}', parameters);
+    }
+
 }
 
 module.exports = NFLv3OddsClient;

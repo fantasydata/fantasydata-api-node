@@ -271,6 +271,20 @@ class NHLv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/nhl/stats/{format}/AllTeams');
     }
 
+    /// <summary>
+    /// Get Player Game Logs By Season
+    /// </summary>
+    /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
+    /// <param name="playerid">Unique FantasyData Player ID. Example:<code>30000651</code>.</param>
+    /// <param name="numberofgames">How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code></param>
+    getPlayerGameLogsBySeasonPromise(season, playerid, numberofgames){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['playerid']=playerid;
+        parameters['numberofgames']=numberofgames;
+        return this.GetPromise('/v3/nhl/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}', parameters);
+    }
+
 }
 
 module.exports = NHLv3StatsClient;

@@ -41,6 +41,26 @@ class Soccerv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/projections/{format}/PlayerGameProjectionStatsByPlayer/{date}/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get Dfs Slates By Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2020-02-18</code></param>
+    getDfsSlatesByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/projections/{format}/DfsSlatesByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Upcoming Dfs Slates By Competition
+    /// </summary>
+    /// <param name="competitionId">The Competition Id. Examples: <code>3</code></param>
+    getUpcomingDfsSlatesByCompetitionPromise(competitionId){
+        var parameters = {};
+        parameters['competitionId']=competitionId;
+        return this.GetPromise('/v3/soccer/projections/{format}/UpcomingDfsSlatesByCompetition/{competitionId}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3ProjectionsClient;
