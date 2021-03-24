@@ -119,6 +119,18 @@ class CBBv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/cbb/scores/{format}/Stadiums');
     }
 
+    /// <summary>
+    /// Get Team Schedule
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    getTeamSchedulePromise(season, team){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['team']=team;
+        return this.GetPromise('/v3/cbb/scores/{format}/TeamSchedule/{season}/{team}', parameters);
+    }
+
 }
 
 module.exports = CBBv3ScoresClient;

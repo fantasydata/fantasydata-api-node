@@ -89,6 +89,95 @@ class CBBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/odds/{format}/TeamTrends/{team}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Events by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-11-20</code>, <code>2018-11-23</code>.</param>
+    getBettingEventsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingEventsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Events by Season
+    /// </summary>
+    /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc.</param>
+    getBettingEventsBySeasonPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingEvents/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Futures by Season
+    /// </summary>
+    /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc.</param>
+    getBettingFuturesBySeasonPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingFuturesBySeason/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Market
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets.</param>
+    getBettingMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMarket/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by Event
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
+    getBettingMarketsByEventPromise(eventId){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMarkets/{eventId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by GameID
+    /// </summary>
+    /// <param name="gameid">The GameID of the desired game for which to pull all betting markets (includes outcomes/bets).</param>
+    getBettingMarketsByGameIDPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMarketsByGameID/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by Market Type
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
+    /// <param name="marketTypeID">The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props</param>
+    getBettingMarketsByMarketTypePromise(eventId, marketTypeID){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        parameters['marketTypeID']=marketTypeID;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2020-10-17</code></param>
+    getBettingPlayerPropsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Metadata
+    /// </summary>
+    getBettingMetadataPromise(){
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMetadata');
+    }
+
 }
 
 module.exports = CBBv3OddsClient;

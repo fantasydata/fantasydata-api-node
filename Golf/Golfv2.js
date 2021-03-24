@@ -134,6 +134,13 @@ class Golfv2Client extends BaseClient {
         return this.GetPromise('/golf/v2/{format}/Tournaments/{season}', parameters);
     }
 
+    /// <summary>
+    /// Get Current Season
+    /// </summary>
+    getCurrentSeasonPromise(){
+        return this.GetPromise('/golf/v2/{format}/CurrentSeason');
+    }
+
 }
 
 module.exports = Golfv2Client;

@@ -117,6 +117,33 @@ class CFBv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/cfb/scores/{format}/CurrentSeasonDetails');
     }
 
+    /// <summary>
+    /// Get Player Details By Active
+    /// </summary>
+    getPlayerDetailsByActivePromise(){
+        return this.GetPromise('/v3/cfb/scores/{format}/Players');
+    }
+
+    /// <summary>
+    /// Get Player Details By Player
+    /// </summary>
+    /// <param name="playerid">Unique FantasyData Player ID. Example:<code>50002016</code>.</param>
+    getPlayerDetailsByPlayerPromise(playerid){
+        var parameters = {};
+        parameters['playerid']=playerid;
+        return this.GetPromise('/v3/cfb/scores/{format}/Player/{playerid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Player Details by Team
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    getPlayerDetailsByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/cfb/scores/{format}/Players/{team}', parameters);
+    }
+
 }
 
 module.exports = CFBv3ScoresClient;

@@ -205,6 +205,13 @@ class NBAv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nba/odds/{format}/TeamTrends/{team}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Metadata
+    /// </summary>
+    getBettingMetadataPromise(){
+        return this.GetPromise('/v3/nba/odds/{format}/BettingMetadata');
+    }
+
 }
 
 module.exports = NBAv3OddsClient;

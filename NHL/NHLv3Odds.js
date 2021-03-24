@@ -123,6 +123,95 @@ class NHLv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nhl/odds/{format}/TeamTrends/{team}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Events by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2020-02-15</code>, <code>2020-02-23</code>.</param>
+    getBettingEventsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingEventsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Events by Season
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc.</param>
+    getBettingEventsBySeasonPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingEvents/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Futures by Season
+    /// </summary>
+    /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc</param>
+    getBettingFuturesBySeasonPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingFuturesBySeason/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Market
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets. Valid entries include: <code>421</code>, <code>1041</code>, etc.</param>
+    getBettingMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingMarket/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by Event
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc.</param>
+    getBettingMarketsByEventPromise(eventId){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingMarkets/{eventId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by GameID
+    /// </summary>
+    /// <param name="gameID">The GameID of the desired game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>14814</code></param>
+    getBettingMarketsByGameIDPromise(gameID){
+        var parameters = {};
+        parameters['gameID']=gameID;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingMarketsByGameID/{gameID}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets by Market Type
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc.</param>
+    /// <param name="marketTypeID">The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for `Game Lines` <code>2</code> for `Player Props` <code>3</code> for `Team Props` <code>6</code> for `Game Props`</param>
+    getBettingMarketsByMarketTypePromise(eventId, marketTypeID){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        parameters['marketTypeID']=marketTypeID;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2020-02-15</code>, <code>2020-02-23</code>.</param>
+    getBettingPlayerPropsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Metadata
+    /// </summary>
+    getBettingMetadataPromise(){
+        return this.GetPromise('/v3/nhl/odds/{format}/Bettingmetadata');
+    }
+
 }
 
 module.exports = NHLv3OddsClient;

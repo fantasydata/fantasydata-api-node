@@ -37,7 +37,6 @@ const NHLv3HeadshotsClient = require('./NHL/NHLv3Headshots');
 const CFBv3ScoresClient = require('./CFB/CFBv3Scores');
 const CFBv3StatsClient = require('./CFB/CFBv3Stats');
 const CFBv3OddsClient = require('./CFB/CFBv3Odds');
-const CFBv3ProjectionsClient = require('./CFB/CFBv3Projections');
 const CBBv2Client = require('./CBB/CBBv2');
 const CBBv3ScoresClient = require('./CBB/CBBv3Scores');
 const CBBv3StatsClient = require('./CBB/CBBv3Stats');
@@ -101,7 +100,6 @@ class FantasyDataClient {
         this.CFBv3ScoresClient = new CFBv3ScoresClient(apiKeys.CFBv3ScoresClient);
         this.CFBv3StatsClient = new CFBv3StatsClient(apiKeys.CFBv3StatsClient);
         this.CFBv3OddsClient = new CFBv3OddsClient(apiKeys.CFBv3OddsClient);
-        this.CFBv3ProjectionsClient = new CFBv3ProjectionsClient(apiKeys.CFBv3ProjectionsClient);
         this.CBBv2Client = new CBBv2Client(apiKeys.CBBv2Client);
         this.CBBv3ScoresClient = new CBBv3ScoresClient(apiKeys.CBBv3ScoresClient);
         this.CBBv3StatsClient = new CBBv3StatsClient(apiKeys.CBBv3StatsClient);

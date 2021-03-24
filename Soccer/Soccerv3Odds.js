@@ -47,6 +47,18 @@ class Soccerv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/odds/{format}/LiveGameOddsLineMovement/{gameid}', parameters);
     }
 
+    /// <summary>
+    /// Get Pre-Game Odds by Date by Competition
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getPreGameOddsByDateByCompetitionPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/odds/{format}/PreGameOddsByDateByCompetition/{competition}/{date}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3OddsClient;

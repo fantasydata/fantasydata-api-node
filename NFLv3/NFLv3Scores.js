@@ -284,6 +284,13 @@ class NFLv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/nfl/scores/{format}/Rookies/{season}', parameters);
     }
 
+    /// <summary>
+    /// Get Referees
+    /// </summary>
+    getRefereesPromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/Referees');
+    }
+
 }
 
 module.exports = NFLv3ScoresClient;

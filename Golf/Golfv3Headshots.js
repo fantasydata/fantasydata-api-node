@@ -8,9 +8,9 @@ class Golfv3HeadshotsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Headshot
+    /// Get Headshots
     /// </summary>
-    getHeadshotPromise(){
+    getHeadshotsPromise(){
         return this.GetPromise('/v3/golf/headshots/{format}/Headshots');
     }
 
