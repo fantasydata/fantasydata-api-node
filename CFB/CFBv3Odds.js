@@ -184,6 +184,13 @@ class CFBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cfb/odds/{format}/BettingMetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/cfb/odds/{format}/ActiveSportsbooks');
+    }
+
 }
 
 module.exports = CFBv3OddsClient;

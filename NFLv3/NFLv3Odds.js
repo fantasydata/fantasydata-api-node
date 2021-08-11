@@ -224,6 +224,43 @@ class NFLv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/nfl/odds/{format}/ActiveSportsbooks');
+    }
+
+    /// <summary>
+    /// Get Betting Splits By BettingMarketId
+    /// </summary>
+    /// <param name="marketId">The BettingMarketID of the market you would like to get splits for. Note that markets we do not have split information on will return an empty response.</param>
+    getBettingSplitsByBettingMarketIdPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingSplitsByMarketId/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By ScoreID
+    /// </summary>
+    /// <param name="scoreId">The ScoreID of the desired game to get Betting Market Splits for</param>
+    getBettingSplitsByScoreIDPromise(scoreId){
+        var parameters = {};
+        parameters['scoreId']=scoreId;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Results By Market
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets.</param>
+    getBettingResultsByMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
 }
 
 module.exports = NFLv3OddsClient;

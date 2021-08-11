@@ -212,6 +212,13 @@ class MLBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/mlb/odds/{format}/BettingMetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/mlb/odds/{format}/ActiveSportsbooks');
+    }
+
 }
 
 module.exports = MLBv3OddsClient;

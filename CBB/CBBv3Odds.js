@@ -178,6 +178,13 @@ class CBBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/odds/{format}/BettingMetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/cbb/odds/{format}/ActiveSportsbooks');
+    }
+
 }
 
 module.exports = CBBv3OddsClient;

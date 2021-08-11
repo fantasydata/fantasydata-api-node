@@ -212,6 +212,13 @@ class NHLv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nhl/odds/{format}/Bettingmetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/nhl/odds/{format}/ActiveSportsbooks');
+    }
+
 }
 
 module.exports = NHLv3OddsClient;

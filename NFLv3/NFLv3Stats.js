@@ -775,6 +775,16 @@ class NFLv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/nfl/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}', parameters);
     }
 
+    /// <summary>
+    /// Get Scores by Date
+    /// </summary>
+    /// <param name="date">The date of the games. Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.</param>
+    getScoresByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nfl/stats/{format}/ScoresByDate/{date}', parameters);
+    }
+
 }
 
 module.exports = NFLv3StatsClient;

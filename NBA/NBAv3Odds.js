@@ -212,6 +212,23 @@ class NBAv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/nba/odds/{format}/BettingMetadata');
     }
 
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/nba/odds/{format}/ActiveSportsbooks');
+    }
+
+    /// <summary>
+    /// Get Betting Results By Market
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets. Valid entries include: <code>406451</code>, <code>404168</code>, etc.</param>
+    getBettingResultsByMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/nba/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
 }
 
 module.exports = NBAv3OddsClient;
