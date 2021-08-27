@@ -219,6 +219,36 @@ class MLBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/mlb/odds/{format}/ActiveSportsbooks');
     }
 
+    /// <summary>
+    /// Get Betting Results By Market
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets. Valid IDs include <code>837872</code>, <code>841068</code></param>
+    getBettingResultsByMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/mlb/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By BettingMarketId
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull splits.. Valid IDs include <code>837872</code></param>
+    getBettingSplitsByBettingMarketIdPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/mlb/odds/{format}/BettingSplitsByMarketId/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By GameID
+    /// </summary>
+    /// <param name="gameId">The ID of the game for which you want to receive splits for. Example <code>63266</code>.</param>
+    getBettingSplitsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/mlb/odds/{format}/BettingSplitsByGameId/{gameId}', parameters);
+    }
+
 }
 
 module.exports = MLBv3OddsClient;

@@ -191,6 +191,36 @@ class CFBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cfb/odds/{format}/ActiveSportsbooks');
     }
 
+    /// <summary>
+    /// Get Betting Resulting By Market
+    /// </summary>
+    /// <param name="marketId">BettingMarketID of the market for which you would like to see resulted outcomes. Valid example ID <code>17819</code></param>
+    getBettingResultingByMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/cfb/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By BettingMarketId
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull splits.</param>
+    getBettingSplitsByBettingMarketIdPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/cfb/odds/{format}/BettingSplitsByMarketId/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By GameID
+    /// </summary>
+    /// <param name="gameid">The ID of the game for which you want to receive splits for.Example <code>11778</code></param>
+    getBettingSplitsByGameIDPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/cfb/odds/{format}/BettingSplitsByGameId/{gameid}', parameters);
+    }
+
 }
 
 module.exports = CFBv3OddsClient;
