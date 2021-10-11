@@ -48,21 +48,21 @@ class MLBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Props by Date
+    /// Get Generated Player Props by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
-    getPlayerPropsByDatePromise(date){
+    getGeneratedPlayerPropsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/mlb/odds/{format}/PlayerPropsByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Player Props by Player
+    /// Get Generated Player Props by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code></param>
-    getPlayerPropsByPlayerPromise(date, playerid){
+    getGeneratedPlayerPropsByPlayerPromise(date, playerid){
         var parameters = {};
         parameters['date']=date;
         parameters['playerid']=playerid;
@@ -70,11 +70,11 @@ class MLBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Props by Team
+    /// Get Generated Player Props by Team
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.</param>
-    getPlayerPropsByTeamPromise(date, team){
+    getGeneratedPlayerPropsByTeamPromise(date, team){
         var parameters = {};
         parameters['date']=date;
         parameters['team']=team;
@@ -247,6 +247,16 @@ class MLBv3OddsClient extends BaseClient {
         var parameters = {};
         parameters['gameId']=gameId;
         return this.GetPromise('/v3/mlb/odds/{format}/BettingSplitsByGameId/{gameId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props by GameID
+    /// </summary>
+    /// <param name="gameId">The unique GameID of the game in question.</param>
+    getBettingPlayerPropsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/mlb/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
     }
 
 }

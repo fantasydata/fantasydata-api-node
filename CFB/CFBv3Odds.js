@@ -221,6 +221,16 @@ class CFBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cfb/odds/{format}/BettingSplitsByGameId/{gameid}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Player Props by GameID
+    /// </summary>
+    /// <param name="gameId">The unique GameID of the game in question.</param>
+    getBettingPlayerPropsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/cfb/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
+    }
+
 }
 
 module.exports = CFBv3OddsClient;

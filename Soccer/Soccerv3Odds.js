@@ -163,6 +163,16 @@ class Soccerv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/odds/{format}/BettingPlayerPropsByDate/{competition}/{date}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Player Props by GameID
+    /// </summary>
+    /// <param name="gameId">The unique GameID of the game in question.</param>
+    getBettingPlayerPropsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/soccer/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3OddsClient;

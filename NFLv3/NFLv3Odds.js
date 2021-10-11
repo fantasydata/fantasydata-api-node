@@ -52,12 +52,12 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Props by Player
+    /// Get Generated Player Props by Player
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2018REG</code>, <code>2018PRE</code>, <code>2018POST</code></param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code>, <code>2</code>, etc</param>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example: <code>17920</code>, <code>16771</code>, etc.</param>
-    getPlayerPropsByPlayerPromise(season, week, playerid){
+    getGeneratedPlayerPropsByPlayerPromise(season, week, playerid){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -66,12 +66,12 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Props by Team
+    /// Get Generated Player Props by Team
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2018REG</code>, <code>2018PRE</code>, <code>2018POST</code></param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code>, <code>2</code>, etc</param>
     /// <param name="team">Abbreviation of the team. Example: <code>PHI</code>, <code>NE</code>, etc.</param>
-    getPlayerPropsByTeamPromise(season, week, team){
+    getGeneratedPlayerPropsByTeamPromise(season, week, team){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -80,11 +80,11 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Props by Week
+    /// Get Generated Player Props by Week
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2018REG</code>, <code>2018PRE</code>, <code>2018POST</code></param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code>, <code>2</code>, etc</param>
-    getPlayerPropsByWeekPromise(season, week){
+    getGeneratedPlayerPropsByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -259,6 +259,16 @@ class NFLv3OddsClient extends BaseClient {
         var parameters = {};
         parameters['marketId']=marketId;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props by ScoreID
+    /// </summary>
+    /// <param name="scoreid">The unique ScoreID of the game in question.</param>
+    getBettingPlayerPropsByScoreIDPromise(scoreid){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}', parameters);
     }
 
 }

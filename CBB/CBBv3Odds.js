@@ -185,6 +185,36 @@ class CBBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/odds/{format}/ActiveSportsbooks');
     }
 
+    /// <summary>
+    /// Get Betting Splits By BettingMarketId
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull splits. MarketIds are pulled from the Betting Markets endpoints.</param>
+    getBettingSplitsByBettingMarketIdPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingSplitsByMarketId/{marketId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Splits By GameID
+    /// </summary>
+    /// <param name="gameId">The ID of the game for which you want to receive splits for. GameIds are pulled from the Schedules and Games by Date endpoints.</param>
+    getBettingSplitsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingSplitsByGameId/{gameId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props by GameID
+    /// </summary>
+    /// <param name="gameId">The unique GameID of the game in question.</param>
+    getBettingPlayerPropsByGameIDPromise(gameId){
+        var parameters = {};
+        parameters['gameId']=gameId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
+    }
+
 }
 
 module.exports = CBBv3OddsClient;

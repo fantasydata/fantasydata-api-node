@@ -39,6 +39,16 @@ class NHLv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nhl/projections/{format}/PlayerGameProjectionStatsByPlayer/{date}/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get Starting Goaltenders by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>.</param>
+    getStartingGoaltendersByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/projections/{format}/StartingGoaltendersByDate/{date}', parameters);
+    }
+
 }
 
 module.exports = NHLv3ProjectionsClient;

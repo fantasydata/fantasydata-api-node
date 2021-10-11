@@ -165,6 +165,23 @@ class NFLv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByWeek/{season}/{week}', parameters);
     }
 
+    /// <summary>
+    /// Get DFS Slate Ownership Projections by SlateID
+    /// </summary>
+    /// <param name="slateId">SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected</param>
+    getDFSSlateOwnershipProjectionsBySlateIDPromise(slateId){
+        var parameters = {};
+        parameters['slateId']=slateId;
+        return this.GetPromise('/v3/nfl/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Upcoming DFS Slate Ownership Projections
+    /// </summary>
+    getUpcomingDFSSlateOwnershipProjectionsPromise(){
+        return this.GetPromise('/v3/nfl/projections/{format}/UpcomingDfsSlateOwnershipProjections');
+    }
+
 }
 
 module.exports = NFLv3ProjectionsClient;
