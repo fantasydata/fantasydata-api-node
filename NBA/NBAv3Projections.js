@@ -73,6 +73,16 @@ class NBAv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nba/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}', parameters);
     }
 
+    /// <summary>
+    /// Get Starting Lineups by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>.</param>
+    getStartingLineupsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nba/projections/{format}/StartingLineupsByDate/{date}', parameters);
+    }
+
 }
 
 module.exports = NBAv3ProjectionsClient;

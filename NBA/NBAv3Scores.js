@@ -143,6 +143,13 @@ class NBAv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/nba/scores/{format}/Player/{playerid}', parameters);
     }
 
+    /// <summary>
+    /// Get Referees
+    /// </summary>
+    getRefereesPromise(){
+        return this.GetPromise('/v3/nba/scores/{format}/Referees');
+    }
+
 }
 
 module.exports = NBAv3ScoresClient;

@@ -215,6 +215,16 @@ class CBBv3OddsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
     }
 
+    /// <summary>
+    /// Get Betting Resulting By Market
+    /// </summary>
+    /// <param name="marketId">BettingMarketID of the market for which you would like to see resulted outcomes. Valid example ID <code>96401</code>, <code>93518</code></param>
+    getBettingResultingByMarketPromise(marketId){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        return this.GetPromise('/v3/cbb/odds/{format}/BettingMarketResults/{marketId}', parameters);
+    }
+
 }
 
 module.exports = CBBv3OddsClient;
