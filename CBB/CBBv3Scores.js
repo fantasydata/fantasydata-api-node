@@ -131,6 +131,64 @@ class CBBv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/cbb/scores/{format}/TeamSchedule/{season}/{team}', parameters);
     }
 
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/cbb/scores/{format}/InjuredPlayers');
+    }
+
+    /// <summary>
+    /// Get Team Game Logs By Season
+    /// </summary>
+    /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
+    /// <param name="teamid">Unique ID of team. Example <code> 1 </code></param>
+    /// <param name="numberofgames">How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code></param>
+    getTeamGameLogsBySeasonPromise(season, teamid, numberofgames){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['teamid']=teamid;
+        parameters['numberofgames']=numberofgames;
+        return this.GetPromise('/v3/cbb/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games by Date (Basic)
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
+    getGamesByDateBasicPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/scores/{format}/ScoresBasic/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Players by Team (Basic)
+    /// </summary>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    getPlayersByTeamBasicPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/cbb/scores/{format}/PlayersBasic/{team}', parameters);
+    }
+
+    /// <summary>
+    /// Get Schedules (Basic)
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
+    getSchedulesBasicPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/cbb/scores/{format}/SchedulesBasic/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Teams (Basic)
+    /// </summary>
+    getTeamsBasicPromise(){
+        return this.GetPromise('/v3/cbb/scores/{format}/TeamsBasic');
+    }
+
 }
 
 module.exports = CBBv3ScoresClient;

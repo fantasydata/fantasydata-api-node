@@ -61,6 +61,16 @@ class Soccerv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/projections/{format}/UpcomingDfsSlatesByCompetition/{competitionId}', parameters);
     }
 
+    /// <summary>
+    /// Get Injured Players By Competition
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    getInjuredPlayersByCompetitionPromise(competition){
+        var parameters = {};
+        parameters['competition']=competition;
+        return this.GetPromise('/v3/soccer/projections/{format}/InjuredPlayers/{competition}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3ProjectionsClient;

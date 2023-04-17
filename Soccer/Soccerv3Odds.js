@@ -152,18 +152,6 @@ class Soccerv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Player Props by Date
-    /// </summary>
-    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    /// <param name="date">The date of the game(s). Examples: <code>2020-10-17</code></param>
-    getBettingPlayerPropsByDatePromise(competition, date){
-        var parameters = {};
-        parameters['competition']=competition;
-        parameters['date']=date;
-        return this.GetPromise('/v3/soccer/odds/{format}/BettingPlayerPropsByDate/{competition}/{date}', parameters);
-    }
-
-    /// <summary>
     /// Get Betting Player Props by GameID
     /// </summary>
     /// <param name="gameId">The unique GameID of the game in question.</param>
@@ -171,6 +159,50 @@ class Soccerv3OddsClient extends BaseClient {
         var parameters = {};
         parameters['gameId']=gameId;
         return this.GetPromise('/v3/soccer/odds/{format}/BettingPlayerPropsByGameID/{gameId}', parameters);
+    }
+
+    /// <summary>
+    /// Get Period Game Odds By Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2022-03-19</code></param>
+    getPeriodGameOddsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/odds/{format}/AlternateMarketGameOddsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Period Game Odds Line Movement
+    /// </summary>
+    /// <param name="gameid">The GameID of a Soccer game. GameIDs can be found in the Games API. Valid entries are <code>41323</code></param>
+    getPeriodGameOddsLineMovementPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/soccer/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get In-Game Odds by Date by Competition
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
+    getInGameOddsByDateByCompetitionPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/odds/{format}/LiveGameOddsByDateByCompetition/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Period Game Odds By Date By Competition
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getPeriodGameOddsByDateByCompetitionPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/odds/{format}/AlternateMarketGameOddsByDateByCompetition/{competition}/{date}', parameters);
     }
 
 }

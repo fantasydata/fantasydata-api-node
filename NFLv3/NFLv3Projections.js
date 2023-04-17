@@ -42,7 +42,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Fantasy Defense Season Stats (w/ Bye Week, ADP)
+    /// Get Projected Fantasy Defense Season Stats (w/ ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     getProjectedFantasyDefenseSeasonStatsPromise(season){
@@ -92,7 +92,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Season Stats (w/ Bye Week, ADP)
+    /// Get Projected Player Season Stats (w/ ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     getProjectedPlayerSeasonStatsPromise(season){
@@ -102,7 +102,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Season Stats by Player (w/ Bye Week, ADP)
+    /// Get Projected Player Season Stats by Player (w/ ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>14257</code>.</param>
@@ -114,7 +114,7 @@ class NFLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Season Stats by Team (w/ Bye Week, ADP)
+    /// Get Projected Player Season Stats by Team (w/ ADP)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
@@ -180,6 +180,13 @@ class NFLv3ProjectionsClient extends BaseClient {
     /// </summary>
     getUpcomingDFSSlateOwnershipProjectionsPromise(){
         return this.GetPromise('/v3/nfl/projections/{format}/UpcomingDfsSlateOwnershipProjections');
+    }
+
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/nfl/projections/{format}/InjuredPlayers');
     }
 
 }

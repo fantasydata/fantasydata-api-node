@@ -243,6 +243,27 @@ class CBBv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/cbb/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}', parameters);
     }
 
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/cbb/stats/{format}/InjuredPlayers');
+    }
+
+    /// <summary>
+    /// Get Team Game Logs By Season
+    /// </summary>
+    /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
+    /// <param name="teamid">Unique ID of team. Example <code> 1 </code></param>
+    /// <param name="numberofgames">How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code></param>
+    getTeamGameLogsBySeasonPromise(season, teamid, numberofgames){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['teamid']=teamid;
+        parameters['numberofgames']=numberofgames;
+        return this.GetPromise('/v3/cbb/stats/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}', parameters);
+    }
+
 }
 
 module.exports = CBBv3StatsClient;

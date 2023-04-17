@@ -5,7 +5,7 @@ const https = require('https');
 class BaseClient {
     constructor(apiKey){
         this.ApiKey = apiKey;
-        this.Host = 'fly.sportsdata.io';
+        this.Host = 'api.sportsdata.io';
     }
 
     GetPromise(endpoint, params = {}){

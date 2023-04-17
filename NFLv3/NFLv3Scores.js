@@ -301,6 +301,56 @@ class NFLv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/nfl/scores/{format}/ScoresByDate/{date}', parameters);
     }
 
+    /// <summary>
+    /// Get Team Game Logs By Season
+    /// </summary>
+    /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
+    /// <param name="teamid">Unique ID of team. Example <code> 8 </code></param>
+    /// <param name="numberofgames">How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code></param>
+    getTeamGameLogsBySeasonPromise(season, teamid, numberofgames){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['teamid']=teamid;
+        parameters['numberofgames']=numberofgames;
+        return this.GetPromise('/v3/nfl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}', parameters);
+    }
+
+    /// <summary>
+    /// Get Depth Charts
+    /// </summary>
+    getDepthChartsPromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/DepthCharts');
+    }
+
+    /// <summary>
+    /// Get Schedule (Basic)
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
+    getScheduleBasicPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nfl/scores/{format}/SchedulesBasic/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Scores by Week (Basic)
+    /// </summary>
+    /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
+    /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
+    getScoresByWeekBasicPromise(season, week){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        return this.GetPromise('/v3/nfl/scores/{format}/ScoresBasic/{season}/{week}', parameters);
+    }
+
+    /// <summary>
+    /// Get Teams (Basic)
+    /// </summary>
+    getTeamsBasicPromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/TeamsBasic');
+    }
+
 }
 
 module.exports = NFLv3ScoresClient;

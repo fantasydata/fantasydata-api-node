@@ -183,7 +183,7 @@ class NBAv3StatsClient extends BaseClient {
     /// <summary>
     /// Get Players by Team
     /// </summary>
-    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>PHI</code>, <code>BKN</code>.</param>
     getPlayersByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
@@ -283,6 +283,20 @@ class NBAv3StatsClient extends BaseClient {
         parameters['playerid']=playerid;
         parameters['numberofgames']=numberofgames;
         return this.GetPromise('/v3/nba/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}', parameters);
+    }
+
+    /// <summary>
+    /// Get Team Game Logs By Season
+    /// </summary>
+    /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
+    /// <param name="teamid">Unique ID of team. Example <code> 8 </code></param>
+    /// <param name="numberofgames">How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code></param>
+    getTeamGameLogsBySeasonPromise(season, teamid, numberofgames){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['teamid']=teamid;
+        parameters['numberofgames']=numberofgames;
+        return this.GetPromise('/v3/nba/stats/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}', parameters);
     }
 
 }

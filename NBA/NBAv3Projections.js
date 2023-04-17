@@ -83,6 +83,20 @@ class NBAv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nba/projections/{format}/StartingLineupsByDate/{date}', parameters);
     }
 
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/nba/projections/{format}/InjuredPlayers');
+    }
+
+    /// <summary>
+    /// Get Depth Charts
+    /// </summary>
+    getDepthChartsPromise(){
+        return this.GetPromise('/v3/nba/projections/{format}/DepthCharts');
+    }
+
 }
 
 module.exports = NBAv3ProjectionsClient;

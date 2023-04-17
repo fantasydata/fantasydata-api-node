@@ -52,11 +52,11 @@ class CFBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds by Week
+    /// Get Period Game Odds by Week
     /// </summary>
     /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
     /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, etc.</param>
-    getAlternateMarketPreGameOddsByWeekPromise(season, week){
+    getPeriodGameOddsByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -64,10 +64,10 @@ class CFBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds Line Movement
+    /// Get Period Game Odds Line Movement
     /// </summary>
     /// <param name="gameid">The GameID of an CFB game. GameIDs can be found in the Games API. Valid entries are <code>8487</code> or <code>8657</code></param>
-    getAlternateMarketPreGameOddsLineMovementPromise(gameid){
+    getPeriodGameOddsLineMovementPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/cfb/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}', parameters);
@@ -108,7 +108,7 @@ class CFBv3OddsClient extends BaseClient {
     /// <summary>
     /// Get Betting Events by Season
     /// </summary>
-    /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc.</param>
+    /// <param name="season">Year of the season Examples: <code>2021</code>, <code>2022</code>, etc.</param>
     getBettingEventsBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
@@ -165,16 +165,6 @@ class CFBv3OddsClient extends BaseClient {
         parameters['eventId']=eventId;
         parameters['marketTypeID']=marketTypeID;
         return this.GetPromise('/v3/cfb/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}', parameters);
-    }
-
-    /// <summary>
-    /// Get Betting Player Props by Date
-    /// </summary>
-    /// <param name="date">The date of the game(s). Examples: <code>2020-10-17</code></param>
-    getBettingPlayerPropsByDatePromise(date){
-        var parameters = {};
-        parameters['date']=date;
-        return this.GetPromise('/v3/cfb/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
     }
 
     /// <summary>

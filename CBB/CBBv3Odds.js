@@ -162,16 +162,6 @@ class CBBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Player Props by Date
-    /// </summary>
-    /// <param name="date">The date of the game(s). Examples: <code>2020-10-17</code></param>
-    getBettingPlayerPropsByDatePromise(date){
-        var parameters = {};
-        parameters['date']=date;
-        return this.GetPromise('/v3/cbb/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
-    }
-
-    /// <summary>
     /// Get Betting Metadata
     /// </summary>
     getBettingMetadataPromise(){

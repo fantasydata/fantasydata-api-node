@@ -49,6 +49,13 @@ class NHLv3ProjectionsClient extends BaseClient {
         return this.GetPromise('/v3/nhl/projections/{format}/StartingGoaltendersByDate/{date}', parameters);
     }
 
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/nhl/projections/{format}/InjuredPlayers');
+    }
+
 }
 
 module.exports = NHLv3ProjectionsClient;

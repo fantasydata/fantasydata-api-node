@@ -18,7 +18,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ Injuries, Lineups, DFS Salaries)
+    /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -28,7 +28,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Player (w/ Injuries, Lineups, DFS Salaries)
+    /// Get Projected Player Game Stats by Player (w/ Injuries, DFS Salaries)
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
@@ -47,6 +47,30 @@ class MLBv3ProjectionsClient extends BaseClient {
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/mlb/projections/{format}/PlayerSeasonProjectionStats/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Injured Players
+    /// </summary>
+    getInjuredPlayersPromise(){
+        return this.GetPromise('/v3/mlb/projections/{format}/InjuredPlayers');
+    }
+
+    /// <summary>
+    /// Get Starting Lineups by Date
+    /// </summary>
+    /// <param name="date">The date of the slates. Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
+    getStartingLineupsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/mlb/projections/{format}/StartingLineupsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Depth Charts
+    /// </summary>
+    getDepthChartsPromise(){
+        return this.GetPromise('/v3/mlb/projections/{format}/DepthCharts');
     }
 
 }

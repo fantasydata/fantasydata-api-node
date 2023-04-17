@@ -82,20 +82,20 @@ class MLBv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds by Date
+    /// Get Period Game Odds by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.</param>
-    getAlternateMarketPreGameOddsByDatePromise(date){
+    getPeriodGameOddsByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/mlb/odds/{format}/AlternateMarketGameOddsByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds Line Movement
+    /// Get Period Game Odds Line Movement
     /// </summary>
     /// <param name="gameid">The GameID of an MLB game. GameIDs can be found in the Games API. Valid entries are <code>51735</code> or <code>51745</code></param>
-    getAlternateMarketPreGameOddsLineMovementPromise(gameid){
+    getPeriodGameOddsLineMovementPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/mlb/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}', parameters);
@@ -193,16 +193,6 @@ class MLBv3OddsClient extends BaseClient {
         parameters['eventId']=eventId;
         parameters['marketTypeID']=marketTypeID;
         return this.GetPromise('/v3/mlb/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}', parameters);
-    }
-
-    /// <summary>
-    /// Get Betting Player Props by Date
-    /// </summary>
-    /// <param name="date">The date of the game(s). Examples: <code>2020-08-20</code>, <code>2020-08-23</code>.</param>
-    getBettingPlayerPropsByDatePromise(date){
-        var parameters = {};
-        parameters['date']=date;
-        return this.GetPromise('/v3/mlb/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
     }
 
     /// <summary>

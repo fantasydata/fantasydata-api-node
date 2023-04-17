@@ -10,7 +10,7 @@ class NHLv3PlayByPlayClient extends BaseClient {
     /// <summary>
     /// Get Play By Play
     /// </summary>
-    /// <param name="gameid">The GameID of an MLB game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
+    /// <param name="gameid">The GameID of an NHL game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
     getPlayByPlayPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;

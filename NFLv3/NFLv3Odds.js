@@ -92,11 +92,11 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds by Week
+    /// Get Period Game Odds by Week
     /// </summary>
     /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
     /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
-    getAlternateMarketPreGameOddsByWeekPromise(season, week){
+    getPeriodGameOddsByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -104,10 +104,10 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Alternate Market Pre-Game Odds Line Movement 
+    /// Get Period Game Odds Line Movement 
     /// </summary>
     /// <param name="scoreid">The ScoreID of an NFL score (game). ScoreIDs can be found in the Scores API. Valid entries are <code>16654</code> or <code>16667</code></param>
-    getAlternateMarketPreGameOddsLineMovementPromise(scoreid){
+    getPeriodGameOddsLineMovementPromise(scoreid){
         var parameters = {};
         parameters['scoreid']=scoreid;
         return this.GetPromise('/v3/nfl/odds/{format}/AlternateMarketGameOddsLineMovement/{scoreid}', parameters);
@@ -205,16 +205,6 @@ class NFLv3OddsClient extends BaseClient {
         var parameters = {};
         parameters['scoreid']=scoreid;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByScoreID/{scoreid}', parameters);
-    }
-
-    /// <summary>
-    /// Get Betting Player Props by Date
-    /// </summary>
-    /// <param name="date">The date of the game(s). Examples: <code>2020-09-10</code>, <code>2020-09-13</code>.</param>
-    getBettingPlayerPropsByDatePromise(date){
-        var parameters = {};
-        parameters['date']=date;
-        return this.GetPromise('/v3/nfl/odds/{format}/BettingPlayerPropsByDate/{date}', parameters);
     }
 
     /// <summary>
