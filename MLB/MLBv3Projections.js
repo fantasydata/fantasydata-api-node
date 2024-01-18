@@ -18,7 +18,7 @@ class MLBv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
+    /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries) - Legacy
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -71,6 +71,28 @@ class MLBv3ProjectionsClient extends BaseClient {
     /// </summary>
     getDepthChartsPromise(){
         return this.GetPromise('/v3/mlb/projections/{format}/DepthCharts');
+    }
+
+    /// <summary>
+    /// Get BAKER Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2023-JUL-31</code>, <code>2023-SEP-01</code>.</param>
+    getBAKERProjectedPlayerGameStatsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/mlb/projections/{format}/BakerPlayerGameProjections/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get BAKER Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2023-JUL-31</code>, <code>2023-SEP-01</code>.</param>
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
+    getBAKERProjectedPlayerGameStatsByDatePromise(date, team){
+        var parameters = {};
+        parameters['date']=date;
+        parameters['team']=team;
+        return this.GetPromise('/v3/mlb/projections/{format}/BakerPlayerGameProjectionsByTeam/{date}/{team}', parameters);
     }
 
 }

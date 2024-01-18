@@ -15,10 +15,10 @@ class NFLv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Box Score by ScoreID V3
+    /// Get Box Score by GameID V3 (formerly Box Score by ScoreID V3)
     /// </summary>
     /// <param name="scoreid">The ScoreID of the game. Possible values include: <code>16247</code>, <code>16245</code>, etc.</param>
-    getBoxScoreByScoreIDVPromise(scoreid){
+    getBoxScoreByGameIDVFormerlyBoxScoreByScoreIDVPromise(scoreid){
         var parameters = {};
         parameters['scoreid']=scoreid;
         return this.GetPromise('/v3/nfl/stats/{format}/BoxScoreByScoreIDV3/{scoreid}', parameters);
@@ -541,21 +541,21 @@ class NFLv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Season 
+    /// Get Games by Season (formerly Scores by Season)
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getScoresBySeasonPromise(season){
+    getGamesBySeasonFormerlyScoresBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/stats/{format}/Scores/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Scores by Week
+    /// Get Games by Week (formerly Scores by Week)
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getScoresByWeekPromise(season, week){
+    getGamesByWeekFormerlyScoresByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -698,10 +698,10 @@ class NFLv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Week Simulation
+    /// Get Games by Week Simulation (formerly Scores by Week Simulation)
     /// </summary>
     /// <param name="numberofplays">The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc.</param>
-    getScoresByWeekSimulationPromise(numberofplays){
+    getGamesByWeekSimulationFormerlyScoresByWeekSimulationPromise(numberofplays){
         var parameters = {};
         parameters['numberofplays']=numberofplays;
         return this.GetPromise('/v3/nfl/stats/{format}/SimulatedScores/{numberofplays}', parameters);
@@ -776,10 +776,10 @@ class NFLv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Date
+    /// Get Games by Date (formerly Scores by Date)
     /// </summary>
     /// <param name="date">The date of the games. Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.</param>
-    getScoresByDatePromise(date){
+    getGamesByDateFormerlyScoresByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nfl/stats/{format}/ScoresByDate/{date}', parameters);

@@ -55,6 +55,33 @@ class WNBAv3ScoresClient extends BaseClient {
         return this.GetPromise('/v3/wnba/scores/{format}/Teams');
     }
 
+    /// <summary>
+    /// Get Pre-Game Odds by Date
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2019-MAY-16</code>, <code>2019-MAY-25</code>, etc.</param>
+    getPreGameOddsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/wnba/scores/{format}/GameOddsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Pre-Game Odds Line Movement
+    /// </summary>
+    /// <param name="gameid">The unique GameID of the game for which to pull data.</param>
+    getPreGameOddsLineMovementPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/wnba/scores/{format}/GameOddsLineMovement/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Sportsbooks (Active)
+    /// </summary>
+    getSportsbooksActivePromise(){
+        return this.GetPromise('/v3/wnba/scores/{format}/ActiveSportsbooks');
+    }
+
 }
 
 module.exports = WNBAv3ScoresClient;

@@ -22,10 +22,10 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Games by Date
+    /// Get Games by Date  - Legacy
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getGamesByDatePromise(date){
+    getGamesByDateLegacyPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/GamesByDate/{date}', parameters);
@@ -83,20 +83,20 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Players  - Legacy
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersByTeamPromise(team){
+    getPlayersLegacyPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/nhl/scores/{format}/Players/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules
+    /// Get Schedules  - Legacy
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesPromise(season){
+    getSchedulesLegacyPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nhl/scores/{format}/Games/{season}', parameters);
@@ -168,33 +168,64 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Games by Date (Basic)
+    /// Get Scores by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getGamesByDateBasicPromise(date){
+    getScoresByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/ScoresBasic/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Players by Team (Basic)
+    /// Get Players by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersByTeamBasicPromise(team){
+    getPlayersByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/nhl/scores/{format}/PlayersBasic/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules (Basic)
+    /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesBasicPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nhl/scores/{format}/SchedulesBasic/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Players by Active
+    /// </summary>
+    getPlayersByActivePromise(){
+        return this.GetPromise('/v3/nhl/scores/{format}/PlayersByActive');
+    }
+
+    /// <summary>
+    /// Get Players by Free Agent
+    /// </summary>
+    getPlayersByFreeAgentPromise(){
+        return this.GetPromise('/v3/nhl/scores/{format}/PlayersByFreeAgents');
+    }
+
+    /// <summary>
+    /// Get Goalie Depth Charts
+    /// </summary>
+    getGoalieDepthChartsPromise(){
+        return this.GetPromise('/v3/nhl/scores/{format}/GoalieDepthCharts');
+    }
+
+    /// <summary>
+    /// Get Transactions By Date
+    /// </summary>
+    /// <param name="date">The date of the news. Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
+    getTransactionsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/scores/{format}/TransactionsByDate/{date}', parameters);
     }
 
 }

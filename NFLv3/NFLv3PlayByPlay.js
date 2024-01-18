@@ -51,6 +51,16 @@ class NFLv3PlayByPlayClient extends BaseClient {
         return this.GetPromise('/v3/nfl/pbp/{format}/PlayByPlayDelta/{season}/{week}/{minutes}', parameters);
     }
 
+    /// <summary>
+    /// Get Play By Play By GameID
+    /// </summary>
+    /// <param name="gameid">The GameID of a NFL game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
+    getPlayByPlayByGameIDPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/nfl/pbp/{format}/PlayByPlay/{gameid}', parameters);
+    }
+
 }
 
 module.exports = NFLv3PlayByPlayClient;

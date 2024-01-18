@@ -84,31 +84,31 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedules - Legacy
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulePromise(season){
+    getSchedulesLegacyPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Schedules/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Scores by Season 
+    /// Get Scores by Season - Legacy
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getScoresBySeasonPromise(season){
+    getScoresBySeasonLegacyPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Scores/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Scores by Week
+    /// Get Scores by Week - Legacy
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getScoresByWeekPromise(season, week){
+    getScoresByWeekLegacyPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -241,24 +241,24 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Available
+    /// Get Player Details by Available - Legacy
     /// </summary>
-    getPlayerDetailsByAvailablePromise(){
+    getPlayerDetailsByAvailableLegacyPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details by Free Agents
+    /// Get Player Details by Free Agents - Legacy
     /// </summary>
-    getPlayerDetailsByFreeAgentsPromise(){
+    getPlayerDetailsByFreeAgentsLegacyPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/FreeAgents');
     }
 
     /// <summary>
-    /// Get Player Details by Player
+    /// Get Player Details by Player - Legacy
     /// </summary>
     /// <param name="playerid">Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>732</code>.</param>
-    getPlayerDetailsByPlayerPromise(playerid){
+    getPlayerDetailsByPlayerLegacyPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/nfl/scores/{format}/Player/{playerid}', parameters);
@@ -275,10 +275,10 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Rookie Draft Year
+    /// Get Player Details by Rookie Draft Year - Legacy
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2018</code>, <code>2019</code>, etc.</param>
-    getPlayerDetailsByRookieDraftYearPromise(season){
+    getPlayerDetailsByRookieDraftYearLegacyPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/Rookies/{season}', parameters);
@@ -292,10 +292,10 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Date
+    /// Get Scores by Date - Legacy
     /// </summary>
     /// <param name="date">The date of the games. Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.</param>
-    getScoresByDatePromise(date){
+    getScoresByDateLegacyPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nfl/scores/{format}/ScoresByDate/{date}', parameters);
@@ -323,21 +323,21 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedule (Basic)
+    /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getScheduleBasicPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nfl/scores/{format}/SchedulesBasic/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Scores by Week (Basic)
+    /// Get Scores by Week
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
-    getScoresByWeekBasicPromise(season, week){
+    getScoresByWeekPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -345,10 +345,54 @@ class NFLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams (Basic)
+    /// Get Teams
     /// </summary>
-    getTeamsBasicPromise(){
+    getTeamsPromise(){
         return this.GetPromise('/v3/nfl/scores/{format}/TeamsBasic');
+    }
+
+    /// <summary>
+    /// Get Players by Team
+    /// </summary>
+    /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
+    getPlayersByTeamPromise(team){
+        var parameters = {};
+        parameters['team']=team;
+        return this.GetPromise('/v3/nfl/scores/{format}/PlayersBasic/{team}', parameters);
+    }
+
+    /// <summary>
+    /// Get Players by Available
+    /// </summary>
+    getPlayersByAvailablePromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/PlayersByAvailable');
+    }
+
+    /// <summary>
+    /// Get Players by Free Agent
+    /// </summary>
+    getPlayersByFreeAgentPromise(){
+        return this.GetPromise('/v3/nfl/scores/{format}/PlayersByFreeAgents');
+    }
+
+    /// <summary>
+    /// Get Players by Rookie Draft Year
+    /// </summary>
+    /// <param name="season">Year of the season. Examples: <code>2018</code>, <code>2019</code>, etc.</param>
+    getPlayersByRookieDraftYearPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nfl/scores/{format}/PlayersByRookieDraftYear/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Transactions By Date
+    /// </summary>
+    /// <param name="date">The date of the news. Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
+    getTransactionsByDatePromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nfl/scores/{format}/TransactionsByDate/{date}', parameters);
     }
 
 }

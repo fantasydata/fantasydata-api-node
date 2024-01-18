@@ -101,24 +101,24 @@ class NBAv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Active
+    /// Get Player Details by Active - Legacy
     /// </summary>
-    getPlayerDetailsByActivePromise(){
+    getPlayerDetailsByActiveLegacyPromise(){
         return this.GetPromise('/v3/nba/stats/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details by Free Agent
+    /// Get Player Details by Free Agent - Legacy
     /// </summary>
-    getPlayerDetailsByFreeAgentPromise(){
+    getPlayerDetailsByFreeAgentLegacyPromise(){
         return this.GetPromise('/v3/nba/stats/{format}/FreeAgents');
     }
 
     /// <summary>
-    /// Get Player Details by Player
+    /// Get Player Details by Player - Legacy
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
-    getPlayerDetailsByPlayerPromise(playerid){
+    getPlayerDetailsByPlayerLegacyPromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/nba/stats/{format}/Player/{playerid}', parameters);
@@ -181,10 +181,10 @@ class NBAv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Player Details by Team - Legacy
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>PHI</code>, <code>BKN</code>.</param>
-    getPlayersByTeamPromise(team){
+    getPlayerDetailsByTeamLegacyPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/nba/stats/{format}/Players/{team}', parameters);

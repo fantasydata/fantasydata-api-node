@@ -179,9 +179,11 @@ class NFLv3OddsClient extends BaseClient {
     /// Get Betting Markets by Event
     /// </summary>
     /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
-    getBettingMarketsByEventPromise(eventId){
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByEventPromise(eventId, include){
         var parameters = {};
         parameters['eventId']=eventId;
+        parameters['include']=include;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMarkets/{eventId}', parameters);
     }
 
@@ -190,20 +192,24 @@ class NFLv3OddsClient extends BaseClient {
     /// </summary>
     /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
     /// <param name="marketTypeID">The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props</param>
-    getBettingMarketsByMarketTypePromise(eventId, marketTypeID){
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByMarketTypePromise(eventId, marketTypeID, include){
         var parameters = {};
         parameters['eventId']=eventId;
         parameters['marketTypeID']=marketTypeID;
+        parameters['include']=include;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}', parameters);
     }
 
     /// <summary>
-    /// Get Betting Markets by ScoreID
+    /// Get Betting Markets by GameID (formerly Betting Markets by ScoreID)
     /// </summary>
     /// <param name="scoreid">The ScoreID of the desired game/score for which to pull all betting markets (includes outcomes/bets).</param>
-    getBettingMarketsByScoreIDPromise(scoreid){
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByGameIDFormerlyBettingMarketsByScoreIDPromise(scoreid, include){
         var parameters = {};
         parameters['scoreid']=scoreid;
+        parameters['include']=include;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByScoreID/{scoreid}', parameters);
     }
 
@@ -232,10 +238,10 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Splits By ScoreID
+    /// Get Betting Splits By GameID (formerly Betting Splits By ScoreID)
     /// </summary>
     /// <param name="scoreId">The ScoreID of the desired game to get Betting Market Splits for</param>
-    getBettingSplitsByScoreIDPromise(scoreId){
+    getBettingSplitsByGameIDFormerlyBettingSplitsByScoreIDPromise(scoreId){
         var parameters = {};
         parameters['scoreId']=scoreId;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}', parameters);
@@ -252,12 +258,14 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Player Props by ScoreID
+    /// Get Betting Player Props by GameID (formerly Betting Player Props by ScoreID)
     /// </summary>
     /// <param name="scoreid">The unique ScoreID of the game in question.</param>
-    getBettingPlayerPropsByScoreIDPromise(scoreid){
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingPlayerPropsByGameIDFormerlyBettingPlayerPropsByScoreIDPromise(scoreid, include){
         var parameters = {};
         parameters['scoreid']=scoreid;
+        parameters['include']=include;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}', parameters);
     }
 

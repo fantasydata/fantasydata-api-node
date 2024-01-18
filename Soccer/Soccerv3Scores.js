@@ -39,10 +39,10 @@ class Soccerv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Games by Date
+    /// Get Games by Date - Legacy
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getGamesByDatePromise(date){
+    getGamesByDateLegacyPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/soccer/scores/{format}/GamesByDate/{date}', parameters);
@@ -100,20 +100,20 @@ class Soccerv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Players by Team - Legacy
     /// </summary>
     /// <param name="teamid">Unique FantasyData Team ID. Example:<code>516</code>.</param>
-    getPlayersByTeamPromise(teamid){
+    getPlayersByTeamLegacyPromise(teamid){
         var parameters = {};
         parameters['teamid']=teamid;
         return this.GetPromise('/v3/soccer/scores/{format}/PlayersByTeam/{teamid}', parameters);
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedule - Legacy
     /// </summary>
     /// <param name="roundid">Unique FantasyData Round ID. RoundIDs can be found in the Competition Hierarchy (League Hierarchy). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc</param>
-    getSchedulePromise(roundid){
+    getScheduleLegacyPromise(roundid){
         var parameters = {};
         parameters['roundid']=roundid;
         return this.GetPromise('/v3/soccer/scores/{format}/Schedule/{roundid}', parameters);
