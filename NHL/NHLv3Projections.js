@@ -8,7 +8,7 @@ class NHLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get DFS Slates by Date
+    /// Get DFS Slates - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>.</param>
     getDFSSlatesByDatePromise(date){
@@ -18,7 +18,7 @@ class NHLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
+    /// Get Projected Player Game Stats - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -28,7 +28,7 @@ class NHLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Player (w/ Injuries, DFS Salaries)
+    /// Get Projected Player Game Stats - by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>30000378</code>.</param>
@@ -40,7 +40,7 @@ class NHLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Starting Goaltenders by Date
+    /// Get Starting Goaltenders - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>.</param>
     getStartingGoaltendersByDatePromise(date){
@@ -50,9 +50,9 @@ class NHLv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players
+    /// Get Player Details - by Injured
     /// </summary>
-    getInjuredPlayersPromise(){
+    getPlayerDetailsByInjuredPromise(){
         return this.GetPromise('/v3/nhl/projections/{format}/InjuredPlayers');
     }
 

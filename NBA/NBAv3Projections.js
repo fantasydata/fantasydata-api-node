@@ -8,7 +8,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get DFS Slates by Date
+    /// Get DFS Slates - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>.</param>
     getDFSSlatesByDatePromise(date){
@@ -18,7 +18,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)
+    /// Get Projected Player Game Stats - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -28,7 +28,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Player (w/ Injuries, DFS Salaries)
+    /// Get Projected Player Game Stats - by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
@@ -50,7 +50,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Season Stats by Player
+    /// Get Projected Player Season Stats - by Player
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2019</code>, etc.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>20000571</code>.</param>
@@ -62,7 +62,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Season Stats by Team
+    /// Get Projected Player Season Stats - by Team
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2019</code>, etc.</param>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>MIA</code>, <code>PHI</code>.</param>
@@ -74,7 +74,7 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Starting Lineups by Date
+    /// Get Starting Lineups - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>.</param>
     getStartingLineupsByDatePromise(date){
@@ -84,9 +84,9 @@ class NBAv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players
+    /// Get Player Details - by Injured
     /// </summary>
-    getInjuredPlayersPromise(){
+    getPlayerDetailsByInjuredPromise(){
         return this.GetPromise('/v3/nba/projections/{format}/InjuredPlayers');
     }
 

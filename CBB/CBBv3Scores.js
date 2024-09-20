@@ -15,17 +15,17 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Current Season
+    /// Get Season - Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/cbb/scores/{format}/CurrentSeason');
     }
 
     /// <summary>
-    /// Get Games by Date - Legacy
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getGamesByDateLegacyPromise(date){
+    getGamesByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/scores/{format}/GamesByDate/{date}', parameters);
@@ -39,14 +39,14 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Active
+    /// Get Player Details - by Active
     /// </summary>
     getPlayerDetailsByActivePromise(){
         return this.GetPromise('/v3/cbb/scores/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details by Player
+    /// Get Player Details - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>60003802</code>.</param>
     getPlayerDetailsByPlayerPromise(playerid){
@@ -56,7 +56,7 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Team
+    /// Get Player Details - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
     getPlayerDetailsByTeamPromise(team){
@@ -66,20 +66,20 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedules - Legacy
+    /// Get Games - by Season
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesLegacyPromise(season){
+    getGamesBySeasonPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cbb/scores/{format}/Games/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Team Game Stats by Date
+    /// Get Team Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getTeamGameStatsByDatePromise(date){
+    getTeamGameStatsByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/scores/{format}/TeamGameStatsByDate/{date}', parameters);
@@ -96,17 +96,17 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams - Legacy
+    /// Get Team Profiles - All
     /// </summary>
-    getTeamsLegacyPromise(){
+    getTeamProfilesAllPromise(){
         return this.GetPromise('/v3/cbb/scores/{format}/teams');
     }
 
     /// <summary>
-    /// Get Tournament Hierarchy
+    /// Get Games - by Season [Live & Final]
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018POST</code>, <code>2019</code>.</param>
-    getTournamentHierarchyPromise(season){
+    getGamesBySeasonLiveFinalPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cbb/scores/{format}/Tournament/{season}', parameters);
@@ -120,11 +120,11 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Team Schedule - Legacy
+    /// Get Schedules - by Team
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getTeamScheduleLegacyPromise(season, team){
+    getSchedulesByTeamPromise(season, team){
         var parameters = {};
         parameters['season']=season;
         parameters['team']=team;
@@ -132,9 +132,9 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players
+    /// Get Player Details - by Injured
     /// </summary>
-    getInjuredPlayersPromise(){
+    getPlayerDetailsByInjuredPromise(){
         return this.GetPromise('/v3/cbb/scores/{format}/InjuredPlayers');
     }
 
@@ -153,47 +153,67 @@ class CBBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Date
+    /// Get Games (Basic) - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getScoresByDatePromise(date){
+    getGamesBasicByDatePromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/scores/{format}/ScoresBasic/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Player Profiles - by Team
     /// </summary>
-    /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersByTeamPromise(team){
+    /// <param name="team">The abbreviation of the requested team. Examples: <code>SMU</code>, <code>UCLA</code>.</param>
+    getPlayerProfilesByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/cbb/scores/{format}/PlayersBasic/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules
+    /// Get Schedules (Basic)
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesPromise(season){
+    getSchedulesBasicPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cbb/scores/{format}/SchedulesBasic/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Teams
+    /// Get Teams (Basic) - All
     /// </summary>
-    getTeamsPromise(){
+    getTeamsBasicAllPromise(){
         return this.GetPromise('/v3/cbb/scores/{format}/TeamsBasic');
     }
 
     /// <summary>
-    /// Get Players by Active
+    /// Get Player Details - by Active
     /// </summary>
-    getPlayersByActivePromise(){
+    getPlayerDetailsByActive_1457Promise(){
         return this.GetPromise('/v3/cbb/scores/{format}/PlayersByActive');
+    }
+
+    /// <summary>
+    /// Get Games - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
+    getGamesByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/scores/{format}/GamesByDateFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games - by Season [Final]
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
+    getGamesBySeasonFinalPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/cbb/scores/{format}/GamesFinal/{season}', parameters);
     }
 
 }

@@ -15,11 +15,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Box Score
+    /// Get Box Score [Live & Final]
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="gameid">The GameID of a Soccer game. GameIDs can be found in the Games API. Valid entries are <code>702</code>, <code>1274</code>, etc.</param>
-    getBoxScorePromise(competition, gameid){
+    getBoxScoreLiveFinalPromise(competition, gameid){
         var parameters = {};
         parameters['competition']=competition;
         parameters['gameid']=gameid;
@@ -27,11 +27,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Box Scores by Date
+    /// Get Box Scores - by Date [Live & Final]
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getBoxScoresByDatePromise(competition, date){
+    getBoxScoresByDateLiveFinalPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -39,12 +39,12 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Box Scores by Date Delta
+    /// Get Box Scores Delta - by Date
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code>, <code>2</code> ... <code>all</code>.</param>
-    getBoxScoresByDateDeltaPromise(competition, date, minutes){
+    getBoxScoresDeltaByDatePromise(competition, date, minutes){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -53,10 +53,10 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Competition Fixtures (League Details)
+    /// Get Games - by Competition
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getCompetitionFixturesLeagueDetailsPromise(competition){
+    getGamesByCompetitionPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/stats/{format}/CompetitionDetails/{competition}', parameters);
@@ -70,11 +70,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Dfs Slates By Date
+    /// Get DFS Slates - by Date
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2020-02-18</code></param>
-    getDfsSlatesByDatePromise(competition, date){
+    getDFSSlatesByDatePromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -82,11 +82,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Games by Date
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getGamesByDatePromise(competition, date){
+    getGamesByDateLiveFinalPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -94,21 +94,21 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Memberships (Active)
+    /// Get Memberships - by Active
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getMembershipsActivePromise(competition){
+    getMembershipsByActivePromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/stats/{format}/ActiveMemberships/{competition}', parameters);
     }
 
     /// <summary>
-    /// Get Memberships (Recently Changed)
+    /// Get Memberships - by Recently Changed
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="days">The number of days since memberships were updated. For example, if you pass <code>3</code>, you'll receive all memberships that have been updated in the past 3 days. Valid entries are: <code>1</code>, <code>2</code> ... <code>30</code></param>
-    getMembershipsRecentlyChangedPromise(competition, days){
+    getMembershipsByRecentlyChangedPromise(competition, days){
         var parameters = {};
         parameters['competition']=competition;
         parameters['days']=days;
@@ -116,11 +116,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Memberships by Team (Historical)
+    /// Get Memberships Historical - By Team
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="teamid">Unique FantasyData Team ID. Example:<code>516</code>.</param>
-    getMembershipsByTeamHistoricalPromise(competition, teamid){
+    getMembershipsHistoricalByTeamPromise(competition, teamid){
         var parameters = {};
         parameters['competition']=competition;
         parameters['teamid']=teamid;
@@ -128,11 +128,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Game Stats by Date
+    /// Get Player Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getPlayerGameStatsByDatePromise(competition, date){
+    getPlayerGameStatsByDateLiveFinalPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -152,11 +152,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Player Details - by Team
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="teamid">Unique FantasyData Team ID. Example:<code>516</code>.</param>
-    getPlayersByTeamPromise(competition, teamid){
+    getPlayerDetailsByTeamPromise(competition, teamid){
         var parameters = {};
         parameters['competition']=competition;
         parameters['teamid']=teamid;
@@ -164,11 +164,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedules
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc.</param>
-    getSchedulePromise(competition, season){
+    getSchedulesPromise(competition, season){
         var parameters = {};
         parameters['competition']=competition;
         parameters['season']=season;
@@ -176,11 +176,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Season Teams
+    /// Get Team Profiles - by Season
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="seasonid">Unique FantasyData Season ID. SeasonIDs can be found in the Competition Hierarchy (League Hierarchy). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc</param>
-    getSeasonTeamsPromise(competition, seasonid){
+    getTeamProfilesBySeasonPromise(competition, seasonid){
         var parameters = {};
         parameters['competition']=competition;
         parameters['seasonid']=seasonid;
@@ -200,11 +200,11 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Team Game Stats by Date
+    /// Get Team Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
-    getTeamGameStatsByDatePromise(competition, date){
+    getTeamGameStatsByDateLiveFinalPromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -224,20 +224,20 @@ class Soccerv4StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams
+    /// Get Team Profiles - by Competition
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getTeamsPromise(competition){
+    getTeamProfilesByCompetitionPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/stats/{format}/Teams/{competition}', parameters);
     }
 
     /// <summary>
-    /// Get Upcoming Dfs Slates By Competition
+    /// Get Upcoming DFS Slates - by Competition
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getUpcomingDfsSlatesByCompetitionPromise(competition){
+    getUpcomingDFSSlatesByCompetitionPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/stats/{format}/UpcomingDfsSlatesByCompetition/{competition}', parameters);
@@ -248,6 +248,78 @@ class Soccerv4StatsClient extends BaseClient {
     /// </summary>
     getVenuesPromise(){
         return this.GetPromise('/v4/soccer/stats/{format}/Venues');
+    }
+
+    /// <summary>
+    /// Get Box Score [Final]
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="gameid">The GameID of a Soccer game. GameIDs can be found in the Games API. Valid entries are <code>702</code>, <code>1274</code>, etc.</param>
+    getBoxScoreFinalPromise(competition, gameid){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v4/soccer/stats/{format}/BoxScoreFinal/{competition}/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Box Scores - by Date [Final]
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getBoxScoresByDateFinalPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v4/soccer/stats/{format}/BoxScoresFinal/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Lineups - by Date
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getLineupsByDatePromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v4/soccer/stats/{format}/LineupsByDate/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Player Game Stats - by Date [Final]
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getPlayerGameStatsByDateFinalPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v4/soccer/stats/{format}/PlayerGameStatsByDateFinal/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Team Game Stats - by Date [Final]
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getTeamGameStatsByDateFinalPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v4/soccer/stats/{format}/TeamGameStatsByDateFinal/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Fantasy Points - by Date
+    /// </summary>
+    /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+    /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
+    getFantasyPointsByDatePromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v4/soccer/stats/{format}/FantasyGameStatsByDate/{competition}/{date}', parameters);
     }
 
 }

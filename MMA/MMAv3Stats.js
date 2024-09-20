@@ -18,10 +18,10 @@ class MMAv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Fight
+    /// Get Fight [Live & Final]
     /// </summary>
     /// <param name="fightid">The unique ID of this fight. Examples: <code>1100</code>, etc.</param>
-    getFightPromise(fightid){
+    getFightLiveFinalPromise(fightid){
         var parameters = {};
         parameters['fightid']=fightid;
         return this.GetPromise('/v3/mma/stats/{format}/Fight/{fightid}', parameters);
@@ -38,9 +38,9 @@ class MMAv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Fighters
+    /// Get Fighter Profiles - All
     /// </summary>
-    getFightersPromise(){
+    getFighterProfilesAllPromise(){
         return this.GetPromise('/v3/mma/stats/{format}/Fighters');
     }
 
@@ -52,15 +52,45 @@ class MMAv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedules
     /// </summary>
     /// <param name="league">The name of the league. Examples: <code>UFC</code>, etc</param>
     /// <param name="season">Year of the season. Examples: <code>2019</code>, <code>2020</code>, etc.</param>
-    getSchedulePromise(league, season){
+    getSchedulesPromise(league, season){
         var parameters = {};
         parameters['league']=league;
         parameters['season']=season;
         return this.GetPromise('/v3/mma/stats/{format}/Schedule/{league}/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Fight [Final]
+    /// </summary>
+    /// <param name="fightid">The unique ID of this fight. Examples: <code>1100</code>, etc.</param>
+    getFightFinalPromise(fightid){
+        var parameters = {};
+        parameters['fightid']=fightid;
+        return this.GetPromise('/v3/mma/stats/{format}/FightFinal/{fightid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Fight (Basic) [Live & Final]
+    /// </summary>
+    /// <param name="fightid">The unique ID of this fight. Examples: <code>1100</code>, etc.</param>
+    getFightBasicLiveFinalPromise(fightid){
+        var parameters = {};
+        parameters['fightid']=fightid;
+        return this.GetPromise('/v3/mma/stats/{format}/FightBasic/{fightid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Fight (Basic) [Final]
+    /// </summary>
+    /// <param name="fightid">The unique ID of this fight. Examples: <code>1100</code>, etc.</param>
+    getFightBasicFinalPromise(fightid){
+        var parameters = {};
+        parameters['fightid']=fightid;
+        return this.GetPromise('/v3/mma/stats/{format}/FightBasicFinal/{fightid}', parameters);
     }
 
 }

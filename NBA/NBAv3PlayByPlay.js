@@ -8,10 +8,10 @@ class NBAv3PlayByPlayClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Play By Play
+    /// Get Play By Play [Live & Final]
     /// </summary>
     /// <param name="gameid">The GameID of an NBA game. GameIDs can be found in the Games API. Valid entries are <code>14620</code>, <code>16905</code>, etc.</param>
-    getPlayByPlayPromise(gameid){
+    getPlayByPlayLiveFinalPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/nba/pbp/{format}/PlayByPlay/{gameid}', parameters);
@@ -27,6 +27,16 @@ class NBAv3PlayByPlayClient extends BaseClient {
         parameters['date']=date;
         parameters['minutes']=minutes;
         return this.GetPromise('/v3/nba/pbp/{format}/PlayByPlayDelta/{date}/{minutes}', parameters);
+    }
+
+    /// <summary>
+    /// Get Play By Play [Final]
+    /// </summary>
+    /// <param name="gameid">The GameID of an NBA game. GameIDs can be found in the Games API. Valid entries are <code>14620</code>, <code>16905</code>, etc.</param>
+    getPlayByPlayFinalPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/nba/pbp/{format}/PlayByPlayFinal/{gameid}', parameters);
     }
 
 }

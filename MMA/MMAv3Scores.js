@@ -18,19 +18,19 @@ class MMAv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Fighter
+    /// Get Fighter Profile - By Fighter
     /// </summary>
     /// <param name="fighterid">Each fighter has a unique ID assigned by FantasyData. Fighter IDs can be determined by pulling player related data. Example: <code>140000098</code></param>
-    getFighterPromise(fighterid){
+    getFighterProfileByFighterPromise(fighterid){
         var parameters = {};
         parameters['fighterid']=fighterid;
         return this.GetPromise('/v3/mma/scores/{format}/Fighter/{fighterid}', parameters);
     }
 
     /// <summary>
-    /// Get Fighters
+    /// Get Fighter Profiles - All
     /// </summary>
-    getFightersPromise(){
+    getFighterProfilesAllPromise(){
         return this.GetPromise('/v3/mma/scores/{format}/Fighters');
     }
 
@@ -42,15 +42,22 @@ class MMAv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedules
     /// </summary>
     /// <param name="league">The name of the league. Examples: <code>UFC</code>, etc</param>
     /// <param name="season">Year of the season. Examples: <code>2019</code>, <code>2020</code>, etc.</param>
-    getSchedulePromise(league, season){
+    getSchedulesPromise(league, season){
         var parameters = {};
         parameters['league']=league;
         parameters['season']=season;
         return this.GetPromise('/v3/mma/scores/{format}/Schedule/{league}/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Fighter Profiles (Basic) - All
+    /// </summary>
+    getFighterProfilesBasicAllPromise(){
+        return this.GetPromise('/v3/mma/scores/{format}/FightersBasic');
     }
 
 }

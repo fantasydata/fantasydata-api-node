@@ -8,7 +8,7 @@ class Tennisv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Match Odds by Date
+    /// Get Match Odds - by Date
     /// </summary>
     /// <param name="date">The date for which to pull matches. Ex: <code> 2023-01-03 </code></param>
     getMatchOddsByDatePromise(date){
@@ -18,11 +18,11 @@ class Tennisv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Match Odds by Date and Season
+    /// Get Match Odds by Season - by Date
     /// </summary>
     /// <param name="seasonid">The SeasonId for which to filter data. Example: <code>27</code></param>
     /// <param name="date">The date for which to pull matches. Ex: <code> 2023-01-03 </code></param>
-    getMatchOddsByDateAndSeasonPromise(seasonid, date){
+    getMatchOddsBySeasonByDatePromise(seasonid, date){
         var parameters = {};
         parameters['seasonid']=seasonid;
         parameters['date']=date;
@@ -40,9 +40,9 @@ class Tennisv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Sportsbooks (Active)
+    /// Get Sportsbooks - by Active
     /// </summary>
-    getSportsbooksActivePromise(){
+    getSportsbooksByActivePromise(){
         return this.GetPromise('/v3/tennis/odds/{format}/ActiveSportsbooks');
     }
 

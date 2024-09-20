@@ -15,7 +15,7 @@ class NHLv3RotoBallerPremiumNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Premium News by Date
+    /// Get Premium News - by Date
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2021-JAN-06</code>, <code>2021-JAN-31</code>.</param>
     getPremiumNewsByDatePromise(date){
@@ -25,7 +25,7 @@ class NHLv3RotoBallerPremiumNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Premium News by Player
+    /// Get Premium News - by Player
     /// </summary>
     /// <param name="playerid">Unique SportsDataIO Player ID. Example:<code>30001047</code>.</param>
     getPremiumNewsByPlayerPromise(playerid){

@@ -15,42 +15,42 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Conference Hierarchy (with Teams)
+    /// Get Conference Hierarchy
     /// </summary>
     getConferenceHierarchyPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/LeagueHierarchy');
     }
 
     /// <summary>
-    /// Get Current Season
+    /// Get Season Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/CurrentSeason');
     }
 
     /// <summary>
-    /// Get Current Week
+    /// Get Week Current
     /// </summary>
-    getCurrentWeekPromise(){
+    getWeekCurrentPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/CurrentWeek');
     }
 
     /// <summary>
-    /// Get Games by Date - Legacy
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2016-SEP-01</code>, <code>2017-SEP-10</code>.</param>
-    getGamesByDateLegacyPromise(date){
+    getGamesByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cfb/scores/{format}/GamesByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Games by Week - Legacy
+    /// Get Games - by Week [Live & Final]
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
     /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
-    getGamesByWeekLegacyPromise(season, week){
+    getGamesByWeekLiveFinalPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -58,10 +58,10 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Schedules - Legacy
+    /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesLegacyPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/scores/{format}/Games/{season}', parameters);
@@ -75,11 +75,11 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Team Game Stats by Week
+    /// Get Team Game Stats - by Week [Live & Final]
     /// </summary>
     /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
     /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
-    getTeamGameStatsByWeekPromise(season, week){
+    getTeamGameStatsByWeekLiveFinalPromise(season, week){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -97,35 +97,35 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams  - Legacy
+    /// Get Team Profiles - All
     /// </summary>
-    getTeamsLegacyPromise(){
+    getTeamProfilesAllPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/Teams');
     }
 
     /// <summary>
-    /// Get Current SeasonType
+    /// Get Season Type - Current
     /// </summary>
-    getCurrentSeasonTypePromise(){
+    getSeasonTypeCurrentPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/CurrentSeasonType');
     }
 
     /// <summary>
-    /// Get Current Season Details
+    /// Get Season Current - Details
     /// </summary>
-    getCurrentSeasonDetailsPromise(){
+    getSeasonCurrentDetailsPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/CurrentSeasonDetails');
     }
 
     /// <summary>
-    /// Get Player Details By Active
+    /// Get Player Details - by Active
     /// </summary>
     getPlayerDetailsByActivePromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details By Player
+    /// Get Player Details - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>50002016</code>.</param>
     getPlayerDetailsByPlayerPromise(playerid){
@@ -135,7 +135,7 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Team
+    /// Get Player Details - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
     getPlayerDetailsByTeamPromise(team){
@@ -145,14 +145,14 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players
+    /// Get Player Details - by Injured
     /// </summary>
-    getInjuredPlayersPromise(){
+    getPlayerDetailsByInjuredPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/InjuredPlayers');
     }
 
     /// <summary>
-    /// Get Team Game Logs By Season
+    /// Get Team Game Logs - by Season
     /// </summary>
     /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
     /// <param name="teamid">Unique ID of team. Example <code> 1 </code></param>
@@ -166,49 +166,91 @@ class CFBv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Player Profiles - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersByTeamPromise(team){
+    getPlayerProfilesByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/cfb/scores/{format}/PlayersBasic/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules
+    /// Get Schedules (Basic)
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesPromise(season){
+    getSchedulesBasicPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cfb/scores/{format}/SchedulesBasic/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Teams
+    /// Get Teams (Basic) - All
     /// </summary>
-    getTeamsPromise(){
+    getTeamsBasicAllPromise(){
         return this.GetPromise('/v3/cfb/scores/{format}/TeamsBasic');
     }
 
     /// <summary>
-    /// Get Scores by Date
+    /// Get Games (Basic) - by Date [Live & Final]
     /// </summary>
-    /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
-    /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
-    getScoresByDatePromise(season, week){
+    /// <param name="date">The date of the game(s). Examples: <code>2016-SEP-01</code>, <code>2017-SEP-10</code>.</param>
+    getGamesBasicByDateLiveFinalPromise(date){
         var parameters = {};
-        parameters['season']=season;
-        parameters['week']=week;
-        return this.GetPromise('/v3/cfb/scores/{format}/ScoresBasic/{season}/{week}', parameters);
+        parameters['date']=date;
+        return this.GetPromise('/v3/cfb/scores/{format}/ScoresBasic/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Players By Active
+    /// Get Player Details - by Active
     /// </summary>
-    getPlayersByActivePromise(){
+    getPlayerDetailsByActive_1458Promise(){
         return this.GetPromise('/v3/cfb/scores/{format}/PlayersByActive');
+    }
+
+    /// <summary>
+    /// Get Games by Date - [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2016-SEP-01</code>, <code>2017-SEP-10</code>.</param>
+    getGamesByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cfb/scores/{format}/GamesByDateFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games (Basic) by Date - [Final]
+    /// </summary>
+    /// <param name="date">The date of the games. Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.</param>
+    getGamesBasicByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cfb/scores/{format}/ScoresBasicFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games (Basic) - by Week [Final]
+    /// </summary>
+    /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
+    /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
+    getGamesBasicByWeekFinalPromise(season, week){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        return this.GetPromise('/v3/cfb/scores/{format}/ScoresBasicFinal/{season}/{week}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games - by Week [Final]
+    /// </summary>
+    /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
+    /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
+    getGamesByWeekFinalPromise(season, week){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        return this.GetPromise('/v3/cfb/scores/{format}/GamesByWeekFinal/{season}/{week}', parameters);
     }
 
 }

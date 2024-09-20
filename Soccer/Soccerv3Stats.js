@@ -347,6 +347,32 @@ class Soccerv3StatsClient extends BaseClient {
         return this.GetPromise('/v3/soccer/stats/{format}/UpcomingDfsSlatesByCompetition/{competitionId}', parameters);
     }
 
+    /// <summary>
+    /// Get Player Game Stats by Date Final
+    /// </summary>
+    /// <param name="competition"></param>
+    /// <param name="date"></param>
+    getPlayerGameStatsByDateFinalPromise(competition, date){
+        var parameters = {};
+        parameters['competition']=competition;
+        parameters['date']=date;
+        return this.GetPromise('/v3/soccer/stats/{format}/PlayerGameStatsByDateFinal/{competition}/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Team Game Stats by Date Final
+    /// </summary>
+    /// <param name="compeitition"></param>
+    /// <param name="date"></param>
+    /// <param name="competition"></param>
+    getTeamGameStatsByDateFinalPromise(compeitition, date, competition){
+        var parameters = {};
+        parameters['compeitition']=compeitition;
+        parameters['date']=date;
+        parameters['competition']=competition;
+        return this.GetPromise('/v3/soccer/stats/{format}/TeamGameStatsByDateFinal/{competition}/{date}', parameters);
+    }
+
 }
 
 module.exports = Soccerv3StatsClient;

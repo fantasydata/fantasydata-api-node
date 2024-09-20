@@ -15,27 +15,27 @@ class WNBAv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Current Season
+    /// Get Season - Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/wnba/scores/{format}/CurrentSeason');
     }
 
     /// <summary>
-    /// Get Games by Date
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2019-MAY-16</code>, <code>2019-MAY-25</code>, etc.</param>
-    getGamesByDatePromise(date){
+    getGamesByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/wnba/scores/{format}/GamesByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Schedule
+    /// Get Schedules
     /// </summary>
     /// <param name="Season">Year of the season (with optional season type). Examples: <code>2019</code>, <code>2019PRE</code>, <code>2019POST</code>, <code>2019REG</code>, etc.</param>
-    getSchedulePromise(Season){
+    getSchedulesPromise(Season){
         var parameters = {};
         parameters['Season']=Season;
         return this.GetPromise('/v3/wnba/scores/{format}/Games/{Season}', parameters);
@@ -49,14 +49,14 @@ class WNBAv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams
+    /// Get Team Profiles - All
     /// </summary>
-    getTeamsPromise(){
+    getTeamProfilesAllPromise(){
         return this.GetPromise('/v3/wnba/scores/{format}/Teams');
     }
 
     /// <summary>
-    /// Get Pre-Game Odds by Date
+    /// Get Pre-Game Odds - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2019-MAY-16</code>, <code>2019-MAY-25</code>, etc.</param>
     getPreGameOddsByDatePromise(date){
@@ -76,10 +76,30 @@ class WNBAv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Sportsbooks (Active)
+    /// Get Sportsbooks - by Active
     /// </summary>
-    getSportsbooksActivePromise(){
+    getSportsbooksByActivePromise(){
         return this.GetPromise('/v3/wnba/scores/{format}/ActiveSportsbooks');
+    }
+
+    /// <summary>
+    /// Get Games - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2019-MAY-16</code>, <code>2019-MAY-25</code>, etc.</param>
+    getGamesByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/wnba/scores/{format}/GamesByDateFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Schedules (Basic)
+    /// </summary>
+    /// <param name="Season">Year of the season (with optional season type). Examples: <code>2019</code>, <code>2019PRE</code>, <code>2019POST</code>, <code>2019REG</code>, etc.</param>
+    getSchedulesBasicPromise(Season){
+        var parameters = {};
+        parameters['Season']=Season;
+        return this.GetPromise('/v3/wnba/scores/{format}/SchedulesBasic/{Season}', parameters);
     }
 
 }

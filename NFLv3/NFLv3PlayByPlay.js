@@ -8,12 +8,12 @@ class NFLv3PlayByPlayClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Play By Play
+    /// Get Play By Play - by Team [Live & Final]
     /// </summary>
     /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
     /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
     /// <param name="hometeam">Abbreviation of the home team. Example: <code>WAS</code>.</param>
-    getPlayByPlayPromise(season, week, hometeam){
+    getPlayByPlayByTeamLiveFinalPromise(season, week, hometeam){
         var parameters = {};
         parameters['season']=season;
         parameters['week']=week;
@@ -52,13 +52,37 @@ class NFLv3PlayByPlayClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Play By Play By GameID
+    /// Get Play By Play [Final]
     /// </summary>
     /// <param name="gameid">The GameID of a NFL game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
-    getPlayByPlayByGameIDPromise(gameid){
+    getPlayByPlayFinalPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/nfl/pbp/{format}/PlayByPlayFinal/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Play By Play [Live & Final]
+    /// </summary>
+    /// <param name="gameid">The GameID of a NFL game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
+    getPlayByPlayLiveFinalPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/nfl/pbp/{format}/PlayByPlay/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Play By Play - by Team [Final]
+    /// </summary>
+    /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
+    /// <param name="week">Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4. Example: <code>1</code></param>
+    /// <param name="hometeam">Abbreviation of the home team. Example: <code>WAS</code>.</param>
+    getPlayByPlayByTeamFinalPromise(season, week, hometeam){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        parameters['hometeam']=hometeam;
+        return this.GetPromise('/v3/nfl/pbp/{format}/PlayByPlayFinal/{season}/{week}/{hometeam}', parameters);
     }
 
 }

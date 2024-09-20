@@ -15,7 +15,7 @@ class MLBv3RotoBallerArticlesClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get RotoBaller Articles By Date
+    /// Get RotoBaller Articles - by Date
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     getRotoBallerArticlesByDatePromise(date){
@@ -25,7 +25,7 @@ class MLBv3RotoBallerArticlesClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get RotoBaller Articles By Player
+    /// Get RotoBaller Articles - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
     getRotoBallerArticlesByPlayerPromise(playerid){

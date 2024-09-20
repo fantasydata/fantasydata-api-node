@@ -15,7 +15,7 @@ class NFLv3RotoBallerPremiumNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Premium News by Date
+    /// Get Premium News - by Date
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.</param>
     getPremiumNewsByDatePromise(date){
@@ -25,7 +25,7 @@ class NFLv3RotoBallerPremiumNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Premium News by Player
+    /// Get Premium News - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
     getPremiumNewsByPlayerPromise(playerid){
@@ -35,7 +35,7 @@ class NFLv3RotoBallerPremiumNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Premium News by Team
+    /// Get Premium News - by Team
     /// </summary>
     /// <param name="team">Abbreviation of the team. Example: <code>WAS</code>.</param>
     getPremiumNewsByTeamPromise(team){

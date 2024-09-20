@@ -8,11 +8,11 @@ class Soccerv4ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Dfs Slates By Date
+    /// Get DFS Slates - by Date
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2020-02-18</code></param>
-    getDfsSlatesByDatePromise(competition, date){
+    getDFSSlatesByDatePromise(competition, date){
         var parameters = {};
         parameters['competition']=competition;
         parameters['date']=date;
@@ -20,17 +20,17 @@ class Soccerv4ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players By Competition
+    /// Get Player Details - by Injured
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getInjuredPlayersByCompetitionPromise(competition){
+    getPlayerDetailsByInjuredPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/projections/{format}/InjuredPlayers/{competition}', parameters);
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ DFS Salaries)
+    /// Get Projected Player Game Stats - by Date
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
@@ -42,10 +42,10 @@ class Soccerv4ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Upcoming Dfs Slates By Competition
+    /// Get Upcoming DFS Slates - by Competition
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
-    getUpcomingDfsSlatesByCompetitionPromise(competition){
+    getUpcomingDFSSlatesByCompetitionPromise(competition){
         var parameters = {};
         parameters['competition']=competition;
         return this.GetPromise('/v4/soccer/projections/{format}/UpcomingDfsSlatesByCompetition/{competition}', parameters);

@@ -8,14 +8,14 @@ class NFLv3RotoworldPlayerNewsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Rotoworld Player News (Recent)
+    /// Get Rotoworld Player News - by Recent
     /// </summary>
-    getRotoworldPlayerNewsRecentPromise(){
+    getRotoworldPlayerNewsByRecentPromise(){
         return this.GetPromise('/v3/nfl/rotoworld/{format}/RotoworldPlayerNews');
     }
 
     /// <summary>
-    /// Get Rotoworld Player News by Date
+    /// Get Rotoworld Player News - by Date
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2022-JUL-31</code>, <code>2022-SEP-01</code>.</param>
     getRotoworldPlayerNewsByDatePromise(date){

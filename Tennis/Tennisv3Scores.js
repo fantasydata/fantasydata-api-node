@@ -15,7 +15,7 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Contestants by Season
+    /// Get Contestants - by Season
     /// </summary>
     /// <param name="seasonid">The SeasonId for which to pull Contestants. Ex: <code>27</code></param>
     getContestantsBySeasonPromise(seasonid){
@@ -25,12 +25,12 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Contestants by Season and Discipline and Gender
+    /// Get Contestants by Discipline and Gender - by Season
     /// </summary>
     /// <param name="seasonid">The SeasonId for which to pull Contestants. Ex: <code>27</code></param>
     /// <param name="discipline">The Discipline for which to pull Contestants. Valid Entries are <code> 1, 2, 3, singles, doubles, mixed </code>.</param>
     /// <param name="gender">The Gender for which to pull Contestants. Valid entries are <code> m, male, men, f, female, women, mixed </code>.</param>
-    getContestantsBySeasonAndDisciplineAndGenderPromise(seasonid, discipline, gender){
+    getContestantsByDisciplineAndGenderBySeasonPromise(seasonid, discipline, gender){
         var parameters = {};
         parameters['seasonid']=seasonid;
         parameters['discipline']=discipline;
@@ -46,31 +46,31 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Match Details
+    /// Get Scores - by Match [Live & Final]
     /// </summary>
     /// <param name="matchid">The MatchId for which to pull details. Ex: <code> 2 </code></param>
-    getMatchDetailsPromise(matchid){
+    getScoresByMatchLiveFinalPromise(matchid){
         var parameters = {};
         parameters['matchid']=matchid;
         return this.GetPromise('/v3/tennis/scores/{format}/Match/{matchid}', parameters);
     }
 
     /// <summary>
-    /// Get Matches by Round (Schedule)
+    /// Get Schedule by Matches - by Round
     /// </summary>
     /// <param name="roundid">The RoundId for which to pull the schedule. Ex. <code> 1 </code></param>
-    getMatchesByRoundSchedulePromise(roundid){
+    getScheduleByMatchesByRoundPromise(roundid){
         var parameters = {};
         parameters['roundid']=roundid;
         return this.GetPromise('/v3/tennis/scores/{format}/MatchesByRound/{roundid}', parameters);
     }
 
     /// <summary>
-    /// Get Matches by Season and Date
+    /// Get Schedule by Season - by Date
     /// </summary>
     /// <param name="seasonid">The SeasonId for which to pull matches. Ex: <code>27</code></param>
     /// <param name="date">The date for which to pull matches. Ex: <code> 2022-06-03 </code></param>
-    getMatchesBySeasonAndDatePromise(seasonid, date){
+    getScheduleBySeasonByDatePromise(seasonid, date){
         var parameters = {};
         parameters['seasonid']=seasonid;
         parameters['date']=date;
@@ -78,28 +78,28 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details
+    /// Get Player Profile
     /// </summary>
     /// <param name="playerid">The unique PlayerId of the player to pull details. Ex. <code>160000001</code></param>
-    getPlayerDetailsPromise(playerid){
+    getPlayerProfilePromise(playerid){
         var parameters = {};
         parameters['playerid']=playerid;
         return this.GetPromise('/v3/tennis/scores/{format}/Player/{playerid}', parameters);
     }
 
     /// <summary>
-    /// Get Players
+    /// Get Player Profiles - All
     /// </summary>
-    getPlayersPromise(){
+    getPlayerProfilesAllPromise(){
         return this.GetPromise('/v3/tennis/scores/{format}/Players');
     }
 
     /// <summary>
-    /// Get Players by Rank
+    /// Get Player Profiles - by Rank
     /// </summary>
     /// <param name="discipline">The Discipline for which to pull player rankings. Valid Entries are <code> 1, 2, 3, singles, doubles, mixed <code>.</param>
     /// <param name="gender">The gender for which to pull player rankings. Valid entries are <code> m, male, men, f, female, women, mixed <code>.</param>
-    getPlayersByRankPromise(discipline, gender){
+    getPlayerProfilesByRankPromise(discipline, gender){
         var parameters = {};
         parameters['discipline']=discipline;
         parameters['gender']=gender;
@@ -107,7 +107,7 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Rounds by Season
+    /// Get Rounds - by Season
     /// </summary>
     /// <param name="seasonid">The SeasonID for which to pull Round records. Ex: <code>27</code></param>
     getRoundsBySeasonPromise(seasonid){
@@ -117,7 +117,7 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Seasons by Competition
+    /// Get Seasons - by Competition
     /// </summary>
     /// <param name="competitionId">The CompetitionId for which to pull Season records. Ex: <code> 28 </code></param>
     getSeasonsByCompetitionPromise(competitionId){
@@ -127,7 +127,7 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Seasons by Tour Season
+    /// Get Seasons - by Tour Season
     /// </summary>
     /// <param name="tourSeasonId">The TourSeasonId for which to pull Seasons by TourSeason. Ex: <code> 1 </code></param>
     getSeasonsByTourSeasonPromise(tourSeasonId){
@@ -137,7 +137,7 @@ class Tennisv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Seasons by Year
+    /// Get Seasons - by Year
     /// </summary>
     /// <param name="year">The year for which to pull Season records. Ex: <code>2022</code></param>
     getSeasonsByYearPromise(year){
@@ -158,6 +158,16 @@ class Tennisv3ScoresClient extends BaseClient {
     /// </summary>
     getVenuesPromise(){
         return this.GetPromise('/v3/tennis/scores/{format}/Venues');
+    }
+
+    /// <summary>
+    /// Get Scores - by Match [Final]
+    /// </summary>
+    /// <param name="matchid">The MatchId for which to pull details. Ex: <code> 2 </code></param>
+    getScoresByMatchFinalPromise(matchid){
+        var parameters = {};
+        parameters['matchid']=matchid;
+        return this.GetPromise('/v3/tennis/scores/{format}/MatchFinal/{matchid}', parameters);
     }
 
 }

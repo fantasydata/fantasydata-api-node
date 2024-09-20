@@ -8,7 +8,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get In-Game Odds by Week
+    /// Get In-Game Odds - by Week
     /// </summary>
     /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
     /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
@@ -30,7 +30,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Pre-Game Odds by Week
+    /// Get Pre-Game Odds - by Week
     /// </summary>
     /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
     /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
@@ -92,7 +92,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Period Game Odds by Week
+    /// Get Period Game Odds - by Week
     /// </summary>
     /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
     /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
@@ -114,7 +114,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Trends by Matchup
+    /// Get Betting Trends - by Matchup
     /// </summary>
     /// <param name="team">Abbreviation of a team. Example: <code>PHI</code>.</param>
     /// <param name="opponent">Abbreviation of an opponent. Example: <code>NE</code>.</param>
@@ -126,7 +126,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Trends by Team
+    /// Get Betting Trends - by Team
     /// </summary>
     /// <param name="team">Abbreviation of a team. Example: <code>PHI</code>.</param>
     getBettingTrendsByTeamPromise(team){
@@ -136,7 +136,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Events by Date
+    /// Get Betting Events - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2020-09-10</code>, <code>2020-09-13</code>.</param>
     getBettingEventsByDatePromise(date){
@@ -146,7 +146,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Events by Season
+    /// Get Betting Events - by Season
     /// </summary>
     /// <param name="season">Year of the season Examples: <code>2020</code>, <code>2021</code>, etc.</param>
     getBettingEventsBySeasonPromise(season){
@@ -156,7 +156,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Futures by Season
+    /// Get Betting Futures - by Season
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2020REG</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2021</code>, etc.</param>
     getBettingFuturesBySeasonPromise(season){
@@ -176,7 +176,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Markets by Event
+    /// Get Betting Markets - by Event
     /// </summary>
     /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
     /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
@@ -188,7 +188,7 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Markets by Market Type
+    /// Get Betting Markets - by Market Type
     /// </summary>
     /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
     /// <param name="marketTypeID">The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props</param>
@@ -202,11 +202,11 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Markets by GameID (formerly Betting Markets by ScoreID)
+    /// Get Betting Markets - by Game
     /// </summary>
     /// <param name="scoreid">The ScoreID of the desired game/score for which to pull all betting markets (includes outcomes/bets).</param>
     /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
-    getBettingMarketsByGameIDFormerlyBettingMarketsByScoreIDPromise(scoreid, include){
+    getBettingMarketsByGamePromise(scoreid, include){
         var parameters = {};
         parameters['scoreid']=scoreid;
         parameters['include']=include;
@@ -221,34 +221,34 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Sportsbooks (Active)
+    /// Get Sportsbooks - Active
     /// </summary>
     getSportsbooksActivePromise(){
         return this.GetPromise('/v3/nfl/odds/{format}/ActiveSportsbooks');
     }
 
     /// <summary>
-    /// Get Betting Splits By BettingMarketId
+    /// Get Betting Splits - by Betting Market
     /// </summary>
     /// <param name="marketId">The BettingMarketID of the market you would like to get splits for. Note that markets we do not have split information on will return an empty response.</param>
-    getBettingSplitsByBettingMarketIdPromise(marketId){
+    getBettingSplitsByBettingMarketPromise(marketId){
         var parameters = {};
         parameters['marketId']=marketId;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingSplitsByMarketId/{marketId}', parameters);
     }
 
     /// <summary>
-    /// Get Betting Splits By GameID (formerly Betting Splits By ScoreID)
+    /// Get Betting Splits - by Game
     /// </summary>
     /// <param name="scoreId">The ScoreID of the desired game to get Betting Market Splits for</param>
-    getBettingSplitsByGameIDFormerlyBettingSplitsByScoreIDPromise(scoreId){
+    getBettingSplitsByGamePromise(scoreId){
         var parameters = {};
         parameters['scoreId']=scoreId;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}', parameters);
     }
 
     /// <summary>
-    /// Get Betting Results By Market
+    /// Get Betting Results - by Market
     /// </summary>
     /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets.</param>
     getBettingResultsByMarketPromise(marketId){
@@ -258,15 +258,185 @@ class NFLv3OddsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Betting Player Props by GameID (formerly Betting Player Props by ScoreID)
+    /// Get Betting Player Props - by Game
     /// </summary>
     /// <param name="scoreid">The unique ScoreID of the game in question.</param>
     /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
-    getBettingPlayerPropsByGameIDFormerlyBettingPlayerPropsByScoreIDPromise(scoreid, include){
+    getBettingPlayerPropsByGamePromise(scoreid, include){
         var parameters = {};
         parameters['scoreid']=scoreid;
         parameters['include']=include;
         return this.GetPromise('/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Futures - by Season [Sportsbook Group]
+    /// </summary>
+    /// <param name="season">Year of the season (with optional season type). Examples: <code>2020REG</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2021</code>, etc.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getBettingFuturesBySeasonSportsbookGroupPromise(season, sportsbookgroup){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Market [Sportsbook Group]
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getBettingMarketSportsbookGroupPromise(marketId, sportsbookgroup){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets - by Event [Sportsbook Group]
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByEventSportsbookGroupPromise(eventId, sportsbookgroup, include){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        parameters['include']=include;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets - by Game [Sportsbook Group]
+    /// </summary>
+    /// <param name="gameid">The GameID of the desired game/score for which to pull all betting markets (includes outcomes/bets).</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByGameSportsbookGroupPromise(gameid, sportsbookgroup, include){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        parameters['include']=include;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByGameID/{gameid}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Markets - by Market Type [Sportsbook Group]
+    /// </summary>
+    /// <param name="eventId">The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).</param>
+    /// <param name="marketTypeID">The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingMarketsByMarketTypeSportsbookGroupPromise(eventId, marketTypeID, sportsbookgroup, include){
+        var parameters = {};
+        parameters['eventId']=eventId;
+        parameters['marketTypeID']=marketTypeID;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        parameters['include']=include;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Player Props - by Game [Sportsbook Group]
+    /// </summary>
+    /// <param name="scoreid">The unique ScoreID of the game in question.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    /// <param name="include">This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. Possible values include: <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available.</param>
+    getBettingPlayerPropsByGameSportsbookGroupPromise(scoreid, sportsbookgroup, include){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        parameters['include']=include;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Betting Results - by Market [Sportsbook Group]
+    /// </summary>
+    /// <param name="marketId">The MarketId of the desired market for which to pull all outcomes/bets.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getBettingResultsByMarketSportsbookGroupPromise(marketId, sportsbookgroup){
+        var parameters = {};
+        parameters['marketId']=marketId;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get In-Game Odds by Week [Sportsbook Group]
+    /// </summary>
+    /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
+    /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getInGameOddsByWeekSportsbookGroupPromise(season, week, sportsbookgroup){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/InGameOddsByWeek/{season}/{week}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get In-Game Odds Line Movement [Sportsbook Group]
+    /// </summary>
+    /// <param name="scoreid">The ScoreID of an NFL score (game). ScoreIDs can be found in the Scores API. Valid entries are <code>16654</code> or <code>16667</code></param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getInGameOddsLineMovementSportsbookGroupPromise(scoreid, sportsbookgroup){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/InGameLineMovement/{scoreid}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Pre-Game and Period Game Odds - by Week [Sportsbook Group]
+    /// </summary>
+    /// <param name="season">Year of the season, with optional season type. Examples: <code>2018</code>, <code>2018POST</code>, etc.</param>
+    /// <param name="week">The week of the scores (games). Examples: <code>1</code>, <code>2</code>, etc.</param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getPreGameAndPeriodGameOddsByWeekSportsbookGroupPromise(season, week, sportsbookgroup){
+        var parameters = {};
+        parameters['season']=season;
+        parameters['week']=week;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/PreGameOddsByWeek/{season}/{week}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Pre-Game and Period Game Odds Line Movement [Sportsbook Group]
+    /// </summary>
+    /// <param name="scoreid">The ScoreID of an NFL score (game). ScoreIDs can be found in the Scores API. Valid entries are <code>16654</code> or <code>16667</code></param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getPreGameAndPeriodGameOddsLineMovementSportsbookGroupPromise(scoreid, sportsbookgroup){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/PreGameOddsLineMovement/{scoreid}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get In-Game Odds Line Movement with Resulting [Sportsbook Group]
+    /// </summary>
+    /// <param name="scoreid">The ScoreID of an NFL score (game). ScoreIDs can be found in the Scores API. Valid entries are <code>16654</code> or <code>16667</code></param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getInGameOddsLineMovementWithResultingSportsbookGroupPromise(scoreid, sportsbookgroup){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/InGameLineMovementWithResulting/{scoreid}/{sportsbookgroup}', parameters);
+    }
+
+    /// <summary>
+    /// Get Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]
+    /// </summary>
+    /// <param name="scoreid">The ScoreID of an NFL score (game). ScoreIDs can be found in the Scores API. Valid entries are <code>16654</code> or <code>16667</code></param>
+    /// <param name="sportsbookgroup">The name of the Sportsbook grouping. Examples: <code>G1100</code></param>
+    getPreGameAndPeriodGameOddsLineMovementWithResultingSportsbookGroupPromise(scoreid, sportsbookgroup){
+        var parameters = {};
+        parameters['scoreid']=scoreid;
+        parameters['sportsbookgroup']=sportsbookgroup;
+        return this.GetPromise('/v3/nfl/odds/{format}/PreGameOddsLineMovementWithResulting/{scoreid}/{sportsbookgroup}', parameters);
     }
 
 }

@@ -8,10 +8,10 @@ class MLBv3PlayByPlayClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Play By Play
+    /// Get Play By Play [Live & Final]
     /// </summary>
     /// <param name="gameid">The GameID of an MLB game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
-    getPlayByPlayPromise(gameid){
+    getPlayByPlayLiveFinalPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/mlb/pbp/{format}/PlayByPlay/{gameid}', parameters);
@@ -27,6 +27,16 @@ class MLBv3PlayByPlayClient extends BaseClient {
         parameters['date']=date;
         parameters['minutes']=minutes;
         return this.GetPromise('/v3/mlb/pbp/{format}/PlayByPlayDelta/{date}/{minutes}', parameters);
+    }
+
+    /// <summary>
+    /// Get Play By Play [Final]
+    /// </summary>
+    /// <param name="gameid">The GameID of an MLB game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
+    getPlayByPlayFinalPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/mlb/pbp/{format}/PlayByPlayFinal/{gameid}', parameters);
     }
 
 }

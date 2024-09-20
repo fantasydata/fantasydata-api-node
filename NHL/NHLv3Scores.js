@@ -15,17 +15,17 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Current Season
+    /// Get Season - Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/CurrentSeason');
     }
 
     /// <summary>
-    /// Get Games by Date  - Legacy
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getGamesByDateLegacyPromise(date){
+    getGamesByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/GamesByDate/{date}', parameters);
@@ -39,7 +39,7 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get News by Date
+    /// Get News - by Date
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
     getNewsByDatePromise(date){
@@ -49,7 +49,7 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get News by Player
+    /// Get News - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>10000507</code>.</param>
     getNewsByPlayerPromise(playerid){
@@ -59,21 +59,21 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Active
+    /// Get Player Details - by Active
     /// </summary>
     getPlayerDetailsByActivePromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details by Free Agent
+    /// Get Player Details - by Free Agents
     /// </summary>
-    getPlayerDetailsByFreeAgentPromise(){
+    getPlayerDetailsByFreeAgentsPromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/FreeAgents');
     }
 
     /// <summary>
-    /// Get Player Details by Player
+    /// Get Player Details - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>30000007</code>.</param>
     getPlayerDetailsByPlayerPromise(playerid){
@@ -83,20 +83,20 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Players  - Legacy
+    /// Get Players Details - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersLegacyPromise(team){
+    getPlayersDetailsByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/nhl/scores/{format}/Players/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules  - Legacy
+    /// Get Schedules
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesLegacyPromise(season){
+    getSchedulesPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nhl/scores/{format}/Games/{season}', parameters);
@@ -120,10 +120,10 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Team Game Stats by Date
+    /// Get Team Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getTeamGameStatsByDatePromise(date){
+    getTeamGameStatsByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/TeamGameStatsByDate/{date}', parameters);
@@ -140,21 +140,21 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams (Active)
+    /// Get Team Profiles - by Active
     /// </summary>
-    getTeamsActivePromise(){
+    getTeamProfilesByActivePromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/teams');
     }
 
     /// <summary>
-    /// Get Teams (All)
+    /// Get Team Profiles - All
     /// </summary>
-    getTeamsAllPromise(){
+    getTeamProfilesAllPromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/AllTeams');
     }
 
     /// <summary>
-    /// Get Team Game Logs By Season
+    /// Get Team Game Logs - by Season
     /// </summary>
     /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
     /// <param name="teamid">Unique ID of team. Example <code> 8 </code></param>
@@ -168,64 +168,94 @@ class NHLv3ScoresClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Scores by Date
+    /// Get Games (Basic) - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getScoresByDatePromise(date){
+    getGamesBasicByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/ScoresBasic/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Players by Team
+    /// Get Players Profiles - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
-    getPlayersByTeamPromise(team){
+    getPlayersProfilesByTeamPromise(team){
         var parameters = {};
         parameters['team']=team;
         return this.GetPromise('/v3/nhl/scores/{format}/PlayersBasic/{team}', parameters);
     }
 
     /// <summary>
-    /// Get Schedules
+    /// Get Schedules (Basic)
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
-    getSchedulesPromise(season){
+    getSchedulesBasicPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/nhl/scores/{format}/SchedulesBasic/{season}', parameters);
     }
 
     /// <summary>
-    /// Get Players by Active
+    /// Get Player Details - by Active
     /// </summary>
-    getPlayersByActivePromise(){
+    getPlayerDetailsByActive_1462Promise(){
         return this.GetPromise('/v3/nhl/scores/{format}/PlayersByActive');
     }
 
     /// <summary>
-    /// Get Players by Free Agent
+    /// Get Player Details - by Free Agents
     /// </summary>
-    getPlayersByFreeAgentPromise(){
+    getPlayerDetailsByFreeAgents_1463Promise(){
         return this.GetPromise('/v3/nhl/scores/{format}/PlayersByFreeAgents');
     }
 
     /// <summary>
-    /// Get Goalie Depth Charts
+    /// Get Depth Charts - Goalies
     /// </summary>
-    getGoalieDepthChartsPromise(){
+    getDepthChartsGoaliesPromise(){
         return this.GetPromise('/v3/nhl/scores/{format}/GoalieDepthCharts');
     }
 
     /// <summary>
-    /// Get Transactions By Date
+    /// Get Transactions
     /// </summary>
     /// <param name="date">The date of the news. Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
-    getTransactionsByDatePromise(date){
+    getTransactionsPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/nhl/scores/{format}/TransactionsByDate/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Team Profiles - by Season
+    /// </summary>
+    /// <param name="season">Year of the season and the season type. If no season type is provided, then the default is regular season. Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.</param>
+    getTeamProfilesBySeasonPromise(season){
+        var parameters = {};
+        parameters['season']=season;
+        return this.GetPromise('/v3/nhl/scores/{format}/teams/{season}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
+    getGamesByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/scores/{format}/GamesByDateFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Games (Basic) - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.</param>
+    getGamesBasicByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/nhl/scores/{format}/ScoresBasicFinal/{date}', parameters);
     }
 
 }

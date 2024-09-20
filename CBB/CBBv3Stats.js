@@ -15,31 +15,31 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Box Score
+    /// Get Box Score [Live & Final]
     /// </summary>
     /// <param name="gameid">The GameID of an CBB game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
-    getBoxScorePromise(gameid){
+    getBoxScoreLiveFinalPromise(gameid){
         var parameters = {};
         parameters['gameid']=gameid;
         return this.GetPromise('/v3/cbb/stats/{format}/BoxScore/{gameid}', parameters);
     }
 
     /// <summary>
-    /// Get Box Scores by Date
+    /// Get Box Scores - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getBoxScoresByDatePromise(date){
+    getBoxScoresByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/stats/{format}/BoxScores/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Box Scores by Date Delta
+    /// Get Box Scores Delta - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
     /// <param name="minutes">Only returns player statistics that have changed in the last X minutes. You specify how many minutes in time to go back. Valid entries are: <code>1</code> or <code>2</code>.</param>
-    getBoxScoresByDateDeltaPromise(date, minutes){
+    getBoxScoresDeltaByDatePromise(date, minutes){
         var parameters = {};
         parameters['date']=date;
         parameters['minutes']=minutes;
@@ -47,17 +47,17 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Current Season
+    /// Get Season Current
     /// </summary>
-    getCurrentSeasonPromise(){
+    getSeasonCurrentPromise(){
         return this.GetPromise('/v3/cbb/stats/{format}/CurrentSeason');
     }
 
     /// <summary>
-    /// Get Games by Date
+    /// Get Games - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getGamesByDatePromise(date){
+    getGamesByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/stats/{format}/GamesByDate/{date}', parameters);
@@ -71,14 +71,14 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Active
+    /// Get Player Details - by Active
     /// </summary>
     getPlayerDetailsByActivePromise(){
         return this.GetPromise('/v3/cbb/stats/{format}/Players');
     }
 
     /// <summary>
-    /// Get Player Details by Player
+    /// Get Player Details - by Player
     /// </summary>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>60003802</code>.</param>
     getPlayerDetailsByPlayerPromise(playerid){
@@ -88,7 +88,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Details by Team
+    /// Get Player Details - by Team
     /// </summary>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
     getPlayerDetailsByTeamPromise(team){
@@ -98,17 +98,17 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Game Stats by Date
+    /// Get Player Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getPlayerGameStatsByDatePromise(date){
+    getPlayerGameStatsByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/stats/{format}/PlayerGameStatsByDate/{date}', parameters);
     }
 
     /// <summary>
-    /// Get Player Game Stats by Player
+    /// Get Player Game Stats - by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>60003802</code>.</param>
@@ -130,7 +130,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Season Stats By Player
+    /// Get Player Season Stats - by Player
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018POST</code>, <code>2019</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>60003802</code>.</param>
@@ -142,7 +142,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Season Stats by Team
+    /// Get Player Season Stats - by Team
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018POST</code>, <code>2019</code>.</param>
     /// <param name="team">The abbreviation of the requested team. Examples: <code>SF</code>, <code>NYY</code>.</param>
@@ -154,7 +154,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date
+    /// Get Projected Player Game Stats - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -164,7 +164,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Player
+    /// Get Projected Player Game Stats - by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>60003802</code>.</param>
@@ -186,10 +186,10 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Team Game Stats by Date
+    /// Get Team Game Stats - by Date [Live & Final]
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
-    getTeamGameStatsByDatePromise(date){
+    getTeamGameStatsByDateLiveFinalPromise(date){
         var parameters = {};
         parameters['date']=date;
         return this.GetPromise('/v3/cbb/stats/{format}/TeamGameStatsByDate/{date}', parameters);
@@ -206,17 +206,17 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Teams
+    /// Get Team Profiles - All
     /// </summary>
-    getTeamsPromise(){
+    getTeamProfilesAllPromise(){
         return this.GetPromise('/v3/cbb/stats/{format}/teams');
     }
 
     /// <summary>
-    /// Get Tournament Hierarchy
+    /// Get Games - by Season [Live & Final]
     /// </summary>
     /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018POST</code>, <code>2019</code>.</param>
-    getTournamentHierarchyPromise(season){
+    getGamesBySeasonLiveFinalPromise(season){
         var parameters = {};
         parameters['season']=season;
         return this.GetPromise('/v3/cbb/stats/{format}/Tournament/{season}', parameters);
@@ -230,7 +230,7 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Player Game Logs By Season
+    /// Get Player Game Logs - by Season
     /// </summary>
     /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
     /// <param name="playerid">Unique FantasyData Player ID.Example:<code>60008094</code>.</param>
@@ -244,14 +244,14 @@ class CBBv3StatsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Injured Players
+    /// Get Player Details - by Injured
     /// </summary>
-    getInjuredPlayersPromise(){
+    getPlayerDetailsByInjuredPromise(){
         return this.GetPromise('/v3/cbb/stats/{format}/InjuredPlayers');
     }
 
     /// <summary>
-    /// Get Team Game Logs By Season
+    /// Get Team Game Logs - by Season
     /// </summary>
     /// <param name="season">Season to get games from. Example <code>2019POST</code>, <code>2020</code></param>
     /// <param name="teamid">Unique ID of team. Example <code> 1 </code></param>
@@ -262,6 +262,46 @@ class CBBv3StatsClient extends BaseClient {
         parameters['teamid']=teamid;
         parameters['numberofgames']=numberofgames;
         return this.GetPromise('/v3/cbb/stats/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}', parameters);
+    }
+
+    /// <summary>
+    /// Get Box Score [Final]
+    /// </summary>
+    /// <param name="gameid">The GameID of an CBB game. GameIDs can be found in the Games API. Valid entries are <code>14620</code> or <code>16905</code></param>
+    getBoxScoreFinalPromise(gameid){
+        var parameters = {};
+        parameters['gameid']=gameid;
+        return this.GetPromise('/v3/cbb/stats/{format}/BoxScoreFinal/{gameid}', parameters);
+    }
+
+    /// <summary>
+    /// Get Box Scores - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
+    getBoxScoresByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/stats/{format}/BoxScoresFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Player Game Stats - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
+    getPlayerGameStatsByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/stats/{format}/PlayerGameStatsByDateFinal/{date}', parameters);
+    }
+
+    /// <summary>
+    /// Get Team Game Stats - by Date [Final]
+    /// </summary>
+    /// <param name="date">The date of the game(s). Examples: <code>2018-FEB-27</code>, <code>2017-DEC-01</code>.</param>
+    getTeamGameStatsByDateFinalPromise(date){
+        var parameters = {};
+        parameters['date']=date;
+        return this.GetPromise('/v3/cbb/stats/{format}/TeamGameStatsByDateFinal/{date}', parameters);
     }
 
 }

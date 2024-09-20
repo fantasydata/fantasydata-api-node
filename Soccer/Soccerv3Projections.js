@@ -8,7 +8,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Competition (w/ DFS Salaries)
+    /// Get Projected Player Game Stats - by Competition
     /// </summary>
     /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
@@ -20,7 +20,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Date (w/ DFS Salaries)
+    /// Get Projected Player Game Stats - by Date
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
     getProjectedPlayerGameStatsByDatePromise(date){
@@ -30,7 +30,7 @@ class Soccerv3ProjectionsClient extends BaseClient {
     }
 
     /// <summary>
-    /// Get Projected Player Game Stats by Player (w/ DFS Salaries)
+    /// Get Projected Player Game Stats - by Player
     /// </summary>
     /// <param name="date">The date of the game(s). Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.</param>
     /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
