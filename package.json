@@ -1,6 +1,6 @@
 {
   "name": "fantasydata-node-client",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Node.js SDK to interface with FantasyData APIs",
   "main": "FantasyDataClient.js",
   "scripts": {

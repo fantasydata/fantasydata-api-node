@@ -12,7 +12,7 @@ $ npm install --save fantasydata-node-client
 You can find your api keys in the [Fantasy Data Developer Portal](https://developer.fantasydata.com/developer). See [Usage](#usage) for implementation details.
 
 ## Usage
-In this simple example we authenticate two clients, `MLBv3Stats` and `MLBv3Projections`, with their respective keys. We then pull standings for `2018` and do whatever we need to with the JSON returned.
+In this simple example we authenticate two clients, `MLBv3Stats` and `MLBv3Projections`, with their respective keys. We then pull standings for `2023` and do whatever we need to with the JSON returned.
 ``` js
 const fdClientModule = require('fantasydata-node-client');
 const keys = {
@@ -21,7 +21,7 @@ const keys = {
 };
 const FantasyDataClient = new fdClientModule(keys);
     
-FantasyDataClient.MLBv3StatsClient.getStandingsPromise('2018')
+FantasyDataClient.MLBv3StatsClient.getStandingsPromise('2023')
     .then((resp) => {
         // data here
     })
