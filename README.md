@@ -48,7 +48,7 @@ FantasyDataClient.MLBv3StatsClient.getStandingsPromise('2023')
 | [Soccer API](https://sportsdata.io/developers/api-documentation/soccer)                |
 | [UFC / MMA API](https://sportsdata.io/developers/api-documentation/mma)                      |
 | [WNBA API](https://sportsdata.io/developers/api-documentation/wnba)                    |
-| [NCAA Women’s Basketball API](https://sportsdata.io/developers/api-documentation/ncaa-womens-basketball) |
+| [NCAA Women's Basketball API](https://sportsdata.io/developers/api-documentation/ncaa-womens-basketball) |
 | [Tennis API](https://sportsdata.io/developers/api-documentation/tennis)                |
 | [LoL API](https://sportsdata.io/developers/api-documentation/lol)                      |
 | [CS:GO API](https://sportsdata.io/developers/api-documentation/csgo)                   |
